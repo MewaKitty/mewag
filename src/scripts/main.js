@@ -518,7 +518,7 @@ const skillCheckBtns = async (c, varScope, fromCheck, fromScript) => {
 	buttons.appendChild(breakElem);
 	let bonus = 0;
 	let res1 = () => {};
-	const promise = new Promise((res, rej) => (res1 = res));
+	const promise = new Promise(res => (res1 = res));
 	createButton(skills[c.value], async () => {
 		if (fromCheck) {
 			res1();
@@ -687,9 +687,7 @@ const skillCheckBtns = async (c, varScope, fromCheck, fromScript) => {
 		}
 	}
 	await promise;
-	if (fromCheck) {
-		return cat.skills[c.value] + cat.abilities[skillData[c.value]] + bonus;
-	} else if (fromScript) {
+	if (fromCheck || fromScript) {
 		return cat.skills[c.value] + cat.abilities[skillData[c.value]] + bonus;
 	}
 };
@@ -727,7 +725,7 @@ const abilityCheckBtns = async (c, varScope, fromCheck, fromScript) => {
 	buttons.appendChild(breakElem);
 	let bonus = 0;
 	let res1 = () => {};
-	const promise = new Promise((res, rej) => (res1 = res));
+	const promise = new Promise(res => (res1 = res));
 	createButton(["Strength", "Intelligence", "Spirit"][c.value], async () => {
 		if (fromCheck) {
 			res1();
@@ -910,7 +908,7 @@ const ageFunc = async () => {
 		mission.hidden = true;
 
 		let res3 = () => {};
-		const promise = new Promise((res, rej) => (res3 = res));
+		const promise = new Promise(res => (res3 = res));
 
 		skillUpgraderCallback = res3;
 
@@ -927,7 +925,7 @@ const ageFunc = async () => {
 		mission.hidden = true;
 
 		let res3 = () => {};
-		const promise = new Promise((res, rej) => (res3 = res));
+		const promise = new Promise(res => (res3 = res));
 
 		abilityUpgraderCallback = res3;
 
@@ -944,7 +942,7 @@ const ageFunc = async () => {
 		mission.hidden = true;
 
 		let res1 = () => {};
-		const promise = new Promise((res, rej) => (res1 = res));
+		const promise = new Promise(res => (res1 = res));
 
 		knackUpgraderCallback = res1;
 
@@ -961,7 +959,7 @@ const ageFunc = async () => {
 		mission.hidden = true;
 
 		let res3 = () => {};
-		const promise = new Promise((res, rej) => (res3 = res));
+		const promise = new Promise(res => (res3 = res));
 
 		intsptUpgraderCallback = res3;
 
@@ -978,7 +976,7 @@ const ageFunc = async () => {
 		mission.hidden = true;
 
 		let res1 = () => {};
-		const promise = new Promise((res, rej) => (res1 = res));
+		const promise = new Promise(res => (res1 = res));
 
 		skillUpgraderCallback = res1;
 
@@ -995,7 +993,7 @@ const ageFunc = async () => {
 		mission.hidden = true;
 
 		let res2 = () => {};
-		const promise2 = new Promise((res, rej) => (res2 = res));
+		const promise2 = new Promise(res => (res2 = res));
 
 		knackUpgraderCallback = res2;
 
@@ -1029,7 +1027,7 @@ const run = async actions => {
 			setGameText(c.value);
 			clearButtons();
 			let res1 = () => {};
-			const promise = new Promise((res, rej) => (res1 = res));
+			const promise = new Promise(res => (res1 = res));
 			createButton("Next", res1);
 			await promise;
 		} else if (c.type === "check") {
@@ -1040,7 +1038,7 @@ const run = async actions => {
 			}
 			clearButtons();
 			let res1 = () => {};
-			const promise = new Promise((res, rej) => (res1 = res));
+			const promise = new Promise(res => (res1 = res));
 
 			for (let x of c.value) {
 				if (x.type ? x.type === "skill" : c.method === "skill") {
@@ -1072,7 +1070,7 @@ const run = async actions => {
 			}
 			clearButtons();
 			let res1 = () => {};
-			const promise = new Promise((res, rej) => (res1 = res));
+			const promise = new Promise(res => (res1 = res));
 			createButton(["Strength", "Intellience", "Spirit"][c.value], res1);
 			await promise;
 			await abilityCheckBtns(c, varScope);
@@ -1082,7 +1080,7 @@ const run = async actions => {
 			}
 			clearButtons();
 			let res1 = () => {};
-			const promise = new Promise((res, rej) => (res1 = res));
+			const promise = new Promise(res => (res1 = res));
 			createButton(knacks[c.value].name, res1);
 			await promise;
 			await knackCheck(c);
@@ -1093,7 +1091,7 @@ const run = async actions => {
 			clearButtons();
 			let res1 = () => {};
 			let anAnswer = null;
-			const promise = new Promise((res, rej) => (res1 = res));
+			const promise = new Promise(res => (res1 = res));
 			for (const x of Object.keys(c.outcomes)) {
 				createButton(x, () => {
 					anAnswer = x;
@@ -1184,7 +1182,7 @@ const run = async actions => {
 					clearButtons();
 					let res1 = () => {};
 					let anAnswer = null;
-					const promise = new Promise((res, rej) => (res1 = res));
+					const promise = new Promise(res => (res1 = res));
 					createButton("Swat", () => {
 						anAnswer = "Swat";
 						res1();
@@ -1220,9 +1218,9 @@ const run = async actions => {
 								mightySwatBonus++;
 
 								let res2 = () => {};
-								let anAnswer2 = null;
+
 								const promise2 = new Promise(
-									(res, rej) => (res2 = res)
+									res => (res2 = res)
 								);
 								createButton("Done", () => res2());
 								createButton("Spend Again", () => {
@@ -1403,12 +1401,12 @@ const run = async actions => {
 						} else {
 							setGameText("You failed to escape.");
 							clearButtons();
-							let res1 = () => {};
-							const promise = new Promise(
-								(res, rej) => (res1 = res)
+							let res2 = () => {};
+							const promise2 = new Promise(
+								res => (res2 = res)
 							);
-							createButton("Ok", res1);
-							await promise;
+							createButton("Ok", () => res2());
+							await promise2;
 
 							if (
 								c.onfailescape !== null &&
@@ -1431,7 +1429,7 @@ const run = async actions => {
 						}
 					}
 				}
-				anChoice = async damage => {
+				const anChoice = async damage => {
 					for (let i = 0; i < damage; i++) {
 						if (
 							strChips === 0 &&
@@ -1451,7 +1449,7 @@ You have ${sptChips} spirit chips.`);
 						clearButtons();
 						let res2 = () => {};
 						let anAnswer2 = null;
-						const promise = new Promise((res, rej) => (res2 = res));
+						const promise = new Promise(res => (res2 = res));
 						createButton("Strength", () => {
 							anAnswer2 = "Strength";
 							res2();
@@ -1482,14 +1480,14 @@ You have ${sptChips} spirit chips.`);
 								);
 								clearButtons();
 								let res1 = () => {};
-								const promise = new Promise(
-									(res, rej) => (res1 = res)
+								const promise2 = new Promise(
+									res => (res1 = res)
 								);
 								createButton("Ok", res1);
-								await promise;
+								await promise2;
 
 								await anChoice(i - damage);
-								i--;
+
 								break;
 							}
 						} else if (anAnswer2 === "Intelligence") {
@@ -1507,13 +1505,13 @@ You have ${sptChips} spirit chips.`);
 								);
 								clearButtons();
 								let res1 = () => {};
-								const promise = new Promise(
-									(res, rej) => (res1 = res)
+								const promise2 = new Promise(
+									res => (res1 = res)
 								);
 								createButton("Ok", res1);
-								await promise;
+								await promise2;
 								await anChoice(i - damage);
-								i--;
+
 								break;
 							}
 						} else if (anAnswer2 === "Spirit") {
@@ -1531,13 +1529,13 @@ You have ${sptChips} spirit chips.`);
 								);
 								clearButtons();
 								let res1 = () => {};
-								const promise = new Promise(
-									(res, rej) => (res1 = res)
+								const promise2 = new Promise(
+									res => (res1 = res)
 								);
 								createButton("Ok", res1);
-								await promise;
+								await promise2;
 								await anChoice(i - damage);
-								i--;
+
 								break;
 							}
 						}
@@ -1612,7 +1610,7 @@ You have ${sptChips} spirit chips.`);
 				mission.hidden = true;
 
 				let res1 = () => {};
-				const promise = new Promise((res, rej) => (res1 = res));
+				const promise = new Promise(res => (res1 = res));
 
 				skillUpgraderCallback = res1;
 
@@ -1629,7 +1627,7 @@ You have ${sptChips} spirit chips.`);
 				mission.hidden = true;
 
 				let res2 = () => {};
-				const promise2 = new Promise((res, rej) => (res2 = res));
+				const promise2 = new Promise(res => (res2 = res));
 
 				knackUpgraderCallback = res2;
 
@@ -1645,7 +1643,7 @@ You have ${sptChips} spirit chips.`);
 				await ageFunc();
 			}
 		} else if (c.type === "damage") {
-			anChoice = async damage => {
+			const anChoice = async damage => {
 				for (let i = 0; i < damage; i++) {
 					if (strChips === 0 && intChips === 0 && sptChips === 0) {
 						await run(funScope[c.onknockout]);
@@ -1660,7 +1658,7 @@ You have ${sptChips} spirit chips.`);
 					clearButtons();
 					let res2 = () => {};
 					let anAnswer2 = null;
-					const promise = new Promise((res, rej) => (res2 = res));
+					const promise = new Promise(res => (res2 = res));
 					createButton("Strength", () => {
 						anAnswer2 = "Strength";
 						res2();
@@ -1691,14 +1689,14 @@ You have ${sptChips} spirit chips.`);
 							);
 							clearButtons();
 							let res1 = () => {};
-							const promise = new Promise(
-								(res, rej) => (res1 = res)
+							const promise2 = new Promise(
+								res => (res1 = res)
 							);
 							createButton("Ok", res1);
-							await promise;
+							await promise2;
 
 							await anChoice(i - damage);
-							i--;
+
 							break;
 						}
 					} else if (anAnswer2 === "Intelligence") {
@@ -1716,13 +1714,13 @@ You have ${sptChips} spirit chips.`);
 							);
 							clearButtons();
 							let res1 = () => {};
-							const promise = new Promise(
-								(res, rej) => (res1 = res)
+							const promise2 = new Promise(
+								res => (res1 = res)
 							);
 							createButton("Ok", res1);
-							await promise;
+							await promise2;
 							await anChoice(i - damage);
-							i--;
+
 							break;
 						}
 					} else if (anAnswer2 === "Spirit") {
@@ -1738,13 +1736,13 @@ You have ${sptChips} spirit chips.`);
 							setGameText("You don't have enough spirit chips.");
 							clearButtons();
 							let res1 = () => {};
-							const promise = new Promise(
-								(res, rej) => (res1 = res)
+							const promise2 = new Promise(
+								res => (res1 = res)
 							);
 							createButton("Ok", res1);
-							await promise;
+							await promise2;
 							await anChoice(i - damage);
-							i--;
+
 							break;
 						}
 					}
