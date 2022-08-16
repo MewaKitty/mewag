@@ -1,576 +1,573 @@
 [
-   {
-      "type":"id",
-      "value":"savethekits"
-   },
-   {
-      "type":"message",
-      "value":"A group of kits has snuck away from the Queens that were watching them. Every available warrior has been sent out to look for them, but we need your help, too!"
-   },
-   {
-      "type":"message",
-      "value":"The clan leader tells the cats that their assignment is to check out two places in particular: a meadow next to the horseplace and an outcropping of rocks just beyond it."
-   },
-   {
-      "type":"check",
-      "value":6,
-      "outcomes":{
-         "4":[
-            {
-               "type":"random",
-               "outcomes":[
-                  [
-                     {
-                        "type":"message",
-                        "value":"There are a lot of butterflies in that meadow this time of year."
-                     }
-                  ],
-                  [
-                     {
-                        "type":"message",
-                        "value":"There’s been a strong wind blowing from the meadow toward the outcropping of rocks the past few days."
-                     }
-                  ],
-                  [
-                     {
-                        "type":"message",
-                        "value":"It rained a lot yesterday, and that means the kits may have left tracks in the mud that can be followed."
-                     }
-                  ],
-                  [
-                     {
-                        "type":"message",
-                        "value":"Many forest animals and prey like to gather in the meadow on sunny days like this."
-                     }
-                  ],
-                  [
-                     {
-                        "type":"message",
-                        "value":"Last night’s patrol reported that the recent rain has made the snakes that live in the outcropping of rocks more active and dangerous than usual."
-                     }
-                  ]
-               ]
-            }
-         ]
-      }
-   },
-   {
-      "type":"function",
-      "id":"sick",
-      "value":[
-         {
-            "type":"message",
-            "value":"You open your eyes and find yourself back in the Clan camp. Lifting your head is more difficult than it usually is, and when you try, the whole world seems to spin around you.\n\"Don’t move,’ you hear a familiar voice meow. ‘You’re not ready to get up just yet.\""
-         }
-      ]
-   },
-   {
-      "type":"function",
-      "id":"hurt",
-      "value":[
-         {
-            "type":"message",
-            "value":"When you open your eyes, you immediately feel the lingering pain from your wounds."
-         },
-         {
-            "type":"message",
-            "value":"‘Don’t move too much,’ meows the familiar voice of your medicine cat. ‘You’ve already shown how brave you are; now show me how smart you are by lying still for a few days while your body heals.’"
-         }
-      ]
-   },
-   {
-      "type":"function",
-      "id":"skunk",
-      "value":[
-         {
-            "type":"setvariable",
-            "id":"skunktrack",
-            "value":1
-         },
-         {
-            "type":"message",
-            "value":"As you get near the other end of the meadow, you see some rustling in the grass. Maybe that’s the kits playing? But no—as you get closer, you can smell a bitter scent that tells you it isn’t kits. It’s a skunk!"
-         },
-         {
-            "type":"message",
-            "value":"Before you can turn around to leave, the skunk senses your approach and charges forward through the grass toward you."
-         },
-         {
-            "type":"choose",
-            "outcomes":{
-               "Run Away":[
-                  {
-                     "type":"check",
-                     "value":5,
-                     "outcomes":{
-                        "3":[
-                           {
-                              "type":"message",
-                              "value":"You successfully ran away."
-                           },
-                           {
-                              "type":"runfunction",
-                              "id":"tracks"
-                           }
-                        ],
-                        "0":[
-                           {
-                              "type":"runfunction",
-                              "id":"sick"
-                           }
-                        ]
-                     }
-                  }
-               ],
-               "Try to Scare It":[
-                  {
-                     "type":"check",
-                     "value":[
-                        0,
-                        4
-                     ],
-                     "outcomes":{
-                        "10":[
-                           {
-                              "type":"message",
-                              "value":"You successfully scared the skunk off."
-                           },
-                           {
-                              "type":"runfunction",
-                              "id":"tracks"
-                           }
-                        ],
-                        "0":[
-                           {
-                              "type":"runfunction",
-                              "id":"sick"
-                           }
-                        ]
-                     }
-                  }
-               ],
-               "Fight":[
-                  {
-                     "type":"fight",
-                     "health":4,
-                     "strength":3,
-                     "jump":4,
-                     "swat":5,
-                     "attack":"swat",
-                     "onfailescape":"sick",
-                     "onwin":"tracks",
-                     "onescape":"tracks",
-                     "onknockout":"hurt",
-                     "canescape":true
-                  }
-               ]
-            }
-         }
-      ]
-   },
-   {
-      "type":"function",
-      "id":"meadows",
-      "value":[
-         {
-            "type":"message",
-            "value":"A beautiful open meadow stretches before you, dappled in sunlight and filled with long grass, flowers, and ferns. Above it all fly more butterflies than you can count, fluttering lazily in the breeze. It’s all so peaceful you could almost forget the troubles that brought you here. It would be so nice to laze about in the sun."
-         },
-         {
-            "type":"check",
-            "value":3,
-            "outcomes":{
-               "4":[
-                  {
-                     "type":"checks",
-                     "method":"skill",
-                     "value":[
-                        {
-                           "value":6,
-                           "outcomes":{
-                              "4":[
-                                 {
-                                    "type":"message",
-                                    "value":"You hear some rustling in the grass on the far side of the meadow."
-                                 }
-                              ]
-                           }
-                        },
-                        {
-                           "value":7,
-                           "outcomes":{
-                              "3":[
-                                 {
-                                    "type":"message",
-                                    "value":"You remember that poppy seeds grow in one corner of the meadow —if the kits went there, they almost certainly have fallen deeply asleep."
-                                 }
-                              ],
-                              "4":[
-                                 {
-                                    "type":"message",
-                                    "value":"You remember that poppy seeds grow in one corner of the meadow —if the kits went there, they almost certainly have fallen deeply asleep. You also remember that there’s a section that’s usually muddy after a rain, and that would be a good place to look for tracks."
-                                 }
-                              ]
-                           }
-                        },
-                        {
-                           "value":9,
-                           "outcomes":{
-                              "3":[
-                                 {
-                                    "type":"message",
-                                    "value":"You see a set of paw prints leading to the far side of the meadow."
-                                 }
-                              ],
-                              "4":[
-                                 {
-                                    "type":"message",
-                                    "value":"You see a set of paw prints leading to the far side of the meadow. You also see a set of paw prints leading away toward the rocky outcropping."
-                                 }
-                              ],
-                              "5":[
-                                 {
-                                    "type":"message",
-                                    "value":"You see a set of paw prints leading to the far side of the meadow. You also see a set of paw prints leading away toward the rocky outcropping. You realize that the first set of prints do not belong to a kit but rather to some other woodland animal."
-                                 }
-                              ]
-                           }
-                        },
-                        {
-                           "value":10,
-                           "outcomes":{
-                              "4":[
-                                 {
-                                    "type":"message",
-                                    "value":"You smell something unpleasant on the far side of the meadow."
-                                 }
-                              ],
-                              "5":[
-                                 {
-                                    "type":"message",
-                                    "value":"You smell something unpleasant on the far side of the meadow. You also smell a faint odor of poppy seeds coming from another corner of the meadow."
-                                 }
-                              ],
-                              "6":[
-                                 {
-                                    "type":"message",
-                                    "value":"You smell something unpleasant on the far side of the meadow. You also smell a faint odor of poppy seeds coming from another corner of the meadow. You also catch a brief scent of the kits on a breeze blowing from the direction of the outcropping of rocks."
-                                 }
-                              ]
-                           }
-                        }
-                     ]
-                  },
-                  {
-                     "type":"choose",
-                     "outcomes":{
-                        "Go to the far side of the meadow":[
-                           {
-                              "type":"runfunction",
-                              "id":"skunk"
-                           }
-                        ]
-                     }
-                  }
-               ],
-               "0":[
-                  {
-                     "type":"message",
-                     "value":"It’s a beautiful day! You can chase butterflies or wrestle with each other or just lie in the sun. It all seems so perfect until you hear a stern voice calling out.\n\"What are you doing?!\"\n\"It’s the clan leader, and he doesn’t look happy!\""
-                  }
-               ]
-            }
-         }
-      ]
-   },
-   {
-      "type":"function",
-      "id":"tracks",
-      "value":[
-         {
-            "type":"message",
-            "value":"Thanks to yesterday’s rain, the ground here is still fairly muddy. After only a few minutes of poking around, you are able to identify two distinct sets of paw prints."
-         },
-         {
-            "type":"checks",
-            "method":"skill",
-            "value":[
-               {
-                  "value":7,
-                  "category":"animal",
-                  "outcomes":{
-                     "5":[
-                        {
-                           "type":"message",
-                           "value":"You notice that the tracks that lead into the meadow were made by a skunk."
-                        }
-                     ]
-                  }
-               },
-               {
-                  "value":9,
-                  "category":"animal",
-                  "outcomes":{
-                     "4":[
-                        {
-                           "type":"message",
-                           "value":"You figure out that the tracks leading into the meadow were made by something the size of a full- grown warrior, and even heavier. Plus the paws that made those tracks clearly have very sharp claws. The tracks heading toward the rocks were made by a smaller, lighter creature—just about the right size for a kit."
-                        }
-                     ]
-                  }
-               },
-               {
-                  "value":6,
-                  "category":"animal",
-                  "outcomes":{
-                     "5":[
-                        {
-                           "type":"message",
-                           "value":"You smell a foul, bitter, unpleasant odor lingering in the tracks leading to the meadow."
-                        }
-                     ],
-                     "6":[
-                        {
-                           "type":"message",
-                           "value":"You smell a foul, bitter, unpleasant odor lingering in the tracks leading to the meadow. You also catch a faint whiff of the kits in the tracks heading toward the rocks."
-                        }
-                     ]
-                  }
-               }
-            ]
-         },
-         {
-            "type":"if",
-            "one":"skunktrack",
-            "two":1,
-            "outcome":[
-               {
-                  "type":"message",
-                  "value":"The tracks on the left came from the skunk earlier."
-               }
-            ]
-         },
-         {
-            "type":"choose",
-            "outcomes":{
-               "Follow the path that leads to the meadow":[
-                  {
-                     "type":"runfunction",
-                     "id":"skunk"
-                  }
-               ],
-               "Follow the path that leads to the rocks":[
-                  {
-                     "type":"runfunction",
-                     "id":"rocks"
-                  }
-               ]
-            }
-         }
-      ]
-   },
-   {
-      "type":"function",
-      "id":"rocks",
-      "value":[
-         {
-            "type":"message",
-            "value":"As you come out from the woods you can see a cliff that is so tall and rocky it almost looks like it was built by some Twolegs. There are other hills around the territories like this, and you know that they’re all dangerous. Rocks sometimes fall from the tops; snakes and biting insects live in the nooks and crannies. And even without that, the rocks never get enough sun to make them worth even taking a nap on."
-         },
-         {
-            "type":"checks",
-            "method":"skill",
-            "value":[
-               {
-                  "value":10,
-                  "outcomes":{
-                     "3":[
-                        {
-                           "type":"message",
-                           "value":"You can definitely smell the kits, but the wind swirling around the cliff makes it impossible to tell exactly where the kits or the snakes are."
-                        }
-                     ],
-                     "4":[
-                        {
-                           "type":"message",
-                           "value":"You can definitely smell the kits. You also smell some snakes. The wind swirling around the cliff makes it impossible to tell exactly where they are."
-                        }
-                     ]
-                  }
-               },
-               {
-                  "value":6,
-                  "outcomes":{
-                     "4":[
-                        {
-                           "type":"message",
-                           "value":"You hear a call from the kits but you can’t figure out why the cries sound so faint and faraway."
-                        }
-                     ],
-                     "5":[
-                        {
-                           "type":"message",
-                           "value":"You hear a call from the kits but you can’t figure out why the cries sound so faint and faraway. You realize that the kits must be in a cave somewhere along the rock wall. But the blowing wind makes it impossible to tell exactly which one."
-                        }
-                     ]
-                  }
-               },
-               {
-                  "value":9,
-                  "outcomes":{
-                     "3":[
-                        {
-                           "type":"message",
-                           "value":"You notice that along with the kits’ paw prints, there are recent tracks made by snakes slithering over the mud. You also notice a butterfly flying in the strong breeze; it seems to be struggling against the wind, trying to fly back toward the meadow."
-                        }
-                     ],
-                     "4":[
-                        {
-                           "type":"message",
-                           "value":"You notice that along with the kits’ paw prints, there are recent tracks made by snakes slithering over the mud. You also notice a butterfly flying in the strong breeze; it seems to be struggling against the wind, trying to fly back toward the meadow. You also notice a small cave entrance along the rock wall."
-                        }
-                     ],
-                     "5":[
-                        {
-                           "type":"message",
-                           "value":"You notice that along with the kits’ paw prints, there are recent tracks made by snakes slithering over the mud. You also notice a butterfly flying in the strong breeze; it seems to be struggling against the wind, trying to fly back toward the meadow. You also notice a small cave entrance along the rock wall. You also notice a larger cave entrance a bit farther away and half hidden behind a tall rock"
-                        }
-                     ]
-                  }
-               },
-               {
-                  "value":7,
-                  "outcomes":{
-                     "2":[
-                        {
-                           "type":"message",
-                           "value":"You know that these rocks are pretty boring and would not hold the kits’ interest for long."
-                        }
-                     ],
-                     "3":[
-                        {
-                           "type":"message",
-                           "value":"You know that these rocks are pretty boring and would not hold the kits’ interest for long. You realize that the kits probably would have left here quickly unless there was a reason they couldn’t."
-                        }
-                     ],
-                     "4":[
-                        {
-                           "type":"message",
-                           "value":"You know that these rocks are pretty boring and would not hold the kits’ interest for long. You realize that the kits probably would have left here quickly unless there was a reason they couldn’t. You know that if an animal attacked or some other danger arose, the kits would probably try to hide."
-                        }
-                     ],
-                     "5":[
-                        {
-                           "type":"message",
-                           "value":"You know that these rocks are pretty boring and would not hold the kits’ interest for long. You realize that the kits probably would have left here quickly unless there was a reason they couldn’t. You know that if an animal attacked or some other danger arose, the kits would probably try to hide. You remember that there are usually caves in rock walls such as this."
-                        }
-                     ]
-                  }
-               }
-            ]
-         },
-         {
-            "type":"choose",
-            "outcomes":{
-               "Follow the butterfly":[
-                  {
-                     "type":"runfunction",
-                     "id":"meadows"
-                  }
-               ],
-               "Small Cave Entrance":[
-                  {
-                     "type":"message",
-                     "value":"As you get near the small cave entrance, you can hear the kits clearly. They seem to be half crying and half whispering."
-                  },
-                  {
-                     "type":"message",
-                     "value":"When you get right up to the cave entrance, you can see that it’s too small for you or the kits to fit through, but inside you can see the kits all standing on a ledge huddled together."
-                  },
-                  {
-                     "type":"choose",
-                     "outcomes":{
-                        "Attack the snakes":[
-                           {
-                              "type":"runfunction",
-                              "id":"snakes"
-                           }
-                        ]
-                     }
-                  }
-               ]
-            }
-         }
-      ]
-   },
-   {
-      "type":"function",
-      "id":"snakes",
-      "value":[
-         {
-            "type":"message",
-            "value":"Snake fight"
-         },
-         {
-            "type":"fight",
-            "health":4,
-            "strength":3,
-            "jump":5,
-            "attack":"poisonbite",
-            "onwin":"end",
-            "ontimeout":"snakeleave",
-            "onknockout":"hurt",
-            "amount":2,
-            "rounds":6
-         }
-      ]
-   },
-   {
-      "type":"function",
-      "id":"snakeleave",
-      "value":[
-         {
-            "type":"message",
-            "value":"The sankes slither under some large rocks and disappear."
-         },
-         {
-            "type":"runfunction",
-            "id":"end"
-         }
-      ]
-   },
-   {
-      "type":"function",
-      "id":"end",
-      "value":[
-         {
-            "type":"message",
-            "value":"After you defeat the snakes, the kits come bounding out of the cave. They’re tired, hungry, and scared, but still safe and healthy."
-         },
-         {
-            "type":"message",
-            "value":"When you get back to the camp, the kits immediately begin telling tales about how big and strong and brave you all were. And it’s true; you were. You saved the kits!"
-         },
-         {
-            "type":"exp"
-         }
-      ]
-   },
-   {
-      "type":"choose",
-      "outcomes":{
-         "Meadow":[
-            {
-               "type":"runfunction",
-               "id":"meadows"
-            }
-         ],
-         "Tracks":[
-            {
-               "type":"runfunction",
-               "id":"tracks"
-            }
-         ]
-      }
-   }
+	{
+		"type": "id",
+		"value": "savethekits"
+	},
+	{
+		"type": "message",
+		"value": "A group of kits has snuck away from the Queens that were watching them. Every available warrior has been sent out to look for them, but we need your help, too!"
+	},
+	{
+		"type": "message",
+		"value": "The clan leader tells the cats that their assignment is to check out two places in particular: a meadow next to the horseplace and an outcropping of rocks just beyond it."
+	},
+	{
+		"type": "check",
+		"value": 6,
+		"outcomes": {
+			"4": [
+				{
+					"type": "random",
+					"outcomes": [
+						[
+							{
+								"type": "message",
+								"value": "There are a lot of butterflies in that meadow this time of year."
+							}
+						],
+						[
+							{
+								"type": "message",
+								"value": "There’s been a strong wind blowing from the meadow toward the outcropping of rocks the past few days."
+							}
+						],
+						[
+							{
+								"type": "message",
+								"value": "It rained a lot yesterday, and that means the kits may have left tracks in the mud that can be followed."
+							}
+						],
+						[
+							{
+								"type": "message",
+								"value": "Many forest animals and prey like to gather in the meadow on sunny days like this."
+							}
+						],
+						[
+							{
+								"type": "message",
+								"value": "Last night’s patrol reported that the recent rain has made the snakes that live in the outcropping of rocks more active and dangerous than usual."
+							}
+						]
+					]
+				}
+			]
+		}
+	},
+	{
+		"type": "function",
+		"id": "sick",
+		"value": [
+			{
+				"type": "message",
+				"value": "You open your eyes and find yourself back in the Clan camp. Lifting your head is more difficult than it usually is, and when you try, the whole world seems to spin around you.\n\"Don’t move,’ you hear a familiar voice meow. ‘You’re not ready to get up just yet.\""
+			}
+		]
+	},
+	{
+		"type": "function",
+		"id": "hurt",
+		"value": [
+			{
+				"type": "message",
+				"value": "When you open your eyes, you immediately feel the lingering pain from your wounds."
+			},
+			{
+				"type": "message",
+				"value": "‘Don’t move too much,’ meows the familiar voice of your medicine cat. ‘You’ve already shown how brave you are; now show me how smart you are by lying still for a few days while your body heals.’"
+			}
+		]
+	},
+	{
+		"type": "function",
+		"id": "skunk",
+		"value": [
+			{
+				"type": "setvariable",
+				"id": "skunktrack",
+				"value": 1
+			},
+			{
+				"type": "message",
+				"value": "As you get near the other end of the meadow, you see some rustling in the grass. Maybe that’s the kits playing? But no—as you get closer, you can smell a bitter scent that tells you it isn’t kits. It’s a skunk!"
+			},
+			{
+				"type": "message",
+				"value": "Before you can turn around to leave, the skunk senses your approach and charges forward through the grass toward you."
+			},
+			{
+				"type": "choose",
+				"outcomes": {
+					"Run Away": [
+						{
+							"type": "check",
+							"value": 5,
+							"outcomes": {
+								"3": [
+									{
+										"type": "message",
+										"value": "You successfully ran away."
+									},
+									{
+										"type": "runfunction",
+										"id": "tracks"
+									}
+								],
+								"0": [
+									{
+										"type": "runfunction",
+										"id": "sick"
+									}
+								]
+							}
+						}
+					],
+					"Try to Scare It": [
+						{
+							"type": "check",
+							"value": [0, 4],
+							"outcomes": {
+								"10": [
+									{
+										"type": "message",
+										"value": "You successfully scared the skunk off."
+									},
+									{
+										"type": "runfunction",
+										"id": "tracks"
+									}
+								],
+								"0": [
+									{
+										"type": "runfunction",
+										"id": "sick"
+									}
+								]
+							}
+						}
+					],
+					"Fight": [
+						{
+							"type": "fight",
+							"health": 4,
+							"strength": 3,
+							"jump": 4,
+							"swat": 5,
+							"attack": "swat",
+							"onfailescape": "sick",
+							"onwin": "tracks",
+							"onescape": "tracks",
+							"onknockout": "hurt",
+							"canescape": true
+						}
+					]
+				}
+			}
+		]
+	},
+	{
+		"type": "function",
+		"id": "meadows",
+		"value": [
+			{
+				"type": "message",
+				"value": "A beautiful open meadow stretches before you, dappled in sunlight and filled with long grass, flowers, and ferns. Above it all fly more butterflies than you can count, fluttering lazily in the breeze. It’s all so peaceful you could almost forget the troubles that brought you here. It would be so nice to laze about in the sun."
+			},
+			{
+				"type": "check",
+				"value": 3,
+				"outcomes": {
+					"4": [
+						{
+							"type": "checks",
+							"method": "skill",
+							"value": [
+								{
+									"value": 6,
+									"outcomes": {
+										"4": [
+											{
+												"type": "message",
+												"value": "You hear some rustling in the grass on the far side of the meadow."
+											}
+										]
+									}
+								},
+								{
+									"value": 7,
+									"outcomes": {
+										"3": [
+											{
+												"type": "message",
+												"value": "You remember that poppy seeds grow in one corner of the meadow —if the kits went there, they almost certainly have fallen deeply asleep."
+											}
+										],
+										"4": [
+											{
+												"type": "message",
+												"value": "You remember that poppy seeds grow in one corner of the meadow —if the kits went there, they almost certainly have fallen deeply asleep. You also remember that there’s a section that’s usually muddy after a rain, and that would be a good place to look for tracks."
+											}
+										]
+									}
+								},
+								{
+									"value": 9,
+									"outcomes": {
+										"3": [
+											{
+												"type": "message",
+												"value": "You see a set of paw prints leading to the far side of the meadow."
+											}
+										],
+										"4": [
+											{
+												"type": "message",
+												"value": "You see a set of paw prints leading to the far side of the meadow. You also see a set of paw prints leading away toward the rocky outcropping."
+											}
+										],
+										"5": [
+											{
+												"type": "message",
+												"value": "You see a set of paw prints leading to the far side of the meadow. You also see a set of paw prints leading away toward the rocky outcropping. You realize that the first set of prints do not belong to a kit but rather to some other woodland animal."
+											}
+										]
+									}
+								},
+								{
+									"value": 10,
+									"outcomes": {
+										"4": [
+											{
+												"type": "message",
+												"value": "You smell something unpleasant on the far side of the meadow."
+											}
+										],
+										"5": [
+											{
+												"type": "message",
+												"value": "You smell something unpleasant on the far side of the meadow. You also smell a faint odor of poppy seeds coming from another corner of the meadow."
+											}
+										],
+										"6": [
+											{
+												"type": "message",
+												"value": "You smell something unpleasant on the far side of the meadow. You also smell a faint odor of poppy seeds coming from another corner of the meadow. You also catch a brief scent of the kits on a breeze blowing from the direction of the outcropping of rocks."
+											}
+										]
+									}
+								}
+							]
+						},
+						{
+							"type": "choose",
+							"outcomes": {
+								"Go to the far side of the meadow": [
+									{
+										"type": "runfunction",
+										"id": "skunk"
+									}
+								]
+							}
+						}
+					],
+					"0": [
+						{
+							"type": "message",
+							"value": "It’s a beautiful day! You can chase butterflies or wrestle with each other or just lie in the sun. It all seems so perfect until you hear a stern voice calling out.\n\"What are you doing?!\"\n\"It’s the clan leader, and he doesn’t look happy!\""
+						}
+					]
+				}
+			}
+		]
+	},
+	{
+		"type": "function",
+		"id": "tracks",
+		"value": [
+			{
+				"type": "message",
+				"value": "Thanks to yesterday’s rain, the ground here is still fairly muddy. After only a few minutes of poking around, you are able to identify two distinct sets of paw prints."
+			},
+			{
+				"type": "checks",
+				"method": "skill",
+				"value": [
+					{
+						"value": 7,
+						"category": "animal",
+						"outcomes": {
+							"5": [
+								{
+									"type": "message",
+									"value": "You notice that the tracks that lead into the meadow were made by a skunk."
+								}
+							]
+						}
+					},
+					{
+						"value": 9,
+						"category": "animal",
+						"outcomes": {
+							"4": [
+								{
+									"type": "message",
+									"value": "You figure out that the tracks leading into the meadow were made by something the size of a full- grown warrior, and even heavier. Plus the paws that made those tracks clearly have very sharp claws. The tracks heading toward the rocks were made by a smaller, lighter creature—just about the right size for a kit."
+								}
+							]
+						}
+					},
+					{
+						"value": 6,
+						"category": "animal",
+						"outcomes": {
+							"5": [
+								{
+									"type": "message",
+									"value": "You smell a foul, bitter, unpleasant odor lingering in the tracks leading to the meadow."
+								}
+							],
+							"6": [
+								{
+									"type": "message",
+									"value": "You smell a foul, bitter, unpleasant odor lingering in the tracks leading to the meadow. You also catch a faint whiff of the kits in the tracks heading toward the rocks."
+								}
+							]
+						}
+					}
+				]
+			},
+			{
+				"type": "if",
+				"one": "skunktrack",
+				"two": 1,
+				"outcome": [
+					{
+						"type": "message",
+						"value": "The tracks on the left came from the skunk earlier."
+					}
+				]
+			},
+			{
+				"type": "choose",
+				"outcomes": {
+					"Follow the path that leads to the meadow": [
+						{
+							"type": "runfunction",
+							"id": "skunk"
+						}
+					],
+					"Follow the path that leads to the rocks": [
+						{
+							"type": "runfunction",
+							"id": "rocks"
+						}
+					]
+				}
+			}
+		]
+	},
+	{
+		"type": "function",
+		"id": "rocks",
+		"value": [
+			{
+				"type": "message",
+				"value": "As you come out from the woods you can see a cliff that is so tall and rocky it almost looks like it was built by some Twolegs. There are other hills around the territories like this, and you know that they’re all dangerous. Rocks sometimes fall from the tops; snakes and biting insects live in the nooks and crannies. And even without that, the rocks never get enough sun to make them worth even taking a nap on."
+			},
+			{
+				"type": "checks",
+				"method": "skill",
+				"value": [
+					{
+						"value": 10,
+						"outcomes": {
+							"3": [
+								{
+									"type": "message",
+									"value": "You can definitely smell the kits, but the wind swirling around the cliff makes it impossible to tell exactly where the kits or the snakes are."
+								}
+							],
+							"4": [
+								{
+									"type": "message",
+									"value": "You can definitely smell the kits. You also smell some snakes. The wind swirling around the cliff makes it impossible to tell exactly where they are."
+								}
+							]
+						}
+					},
+					{
+						"value": 6,
+						"outcomes": {
+							"4": [
+								{
+									"type": "message",
+									"value": "You hear a call from the kits but you can’t figure out why the cries sound so faint and faraway."
+								}
+							],
+							"5": [
+								{
+									"type": "message",
+									"value": "You hear a call from the kits but you can’t figure out why the cries sound so faint and faraway. You realize that the kits must be in a cave somewhere along the rock wall. But the blowing wind makes it impossible to tell exactly which one."
+								}
+							]
+						}
+					},
+					{
+						"value": 9,
+						"outcomes": {
+							"3": [
+								{
+									"type": "message",
+									"value": "You notice that along with the kits’ paw prints, there are recent tracks made by snakes slithering over the mud. You also notice a butterfly flying in the strong breeze; it seems to be struggling against the wind, trying to fly back toward the meadow."
+								}
+							],
+							"4": [
+								{
+									"type": "message",
+									"value": "You notice that along with the kits’ paw prints, there are recent tracks made by snakes slithering over the mud. You also notice a butterfly flying in the strong breeze; it seems to be struggling against the wind, trying to fly back toward the meadow. You also notice a small cave entrance along the rock wall."
+								}
+							],
+							"5": [
+								{
+									"type": "message",
+									"value": "You notice that along with the kits’ paw prints, there are recent tracks made by snakes slithering over the mud. You also notice a butterfly flying in the strong breeze; it seems to be struggling against the wind, trying to fly back toward the meadow. You also notice a small cave entrance along the rock wall. You also notice a larger cave entrance a bit farther away and half hidden behind a tall rock"
+								}
+							]
+						}
+					},
+					{
+						"value": 7,
+						"outcomes": {
+							"2": [
+								{
+									"type": "message",
+									"value": "You know that these rocks are pretty boring and would not hold the kits’ interest for long."
+								}
+							],
+							"3": [
+								{
+									"type": "message",
+									"value": "You know that these rocks are pretty boring and would not hold the kits’ interest for long. You realize that the kits probably would have left here quickly unless there was a reason they couldn’t."
+								}
+							],
+							"4": [
+								{
+									"type": "message",
+									"value": "You know that these rocks are pretty boring and would not hold the kits’ interest for long. You realize that the kits probably would have left here quickly unless there was a reason they couldn’t. You know that if an animal attacked or some other danger arose, the kits would probably try to hide."
+								}
+							],
+							"5": [
+								{
+									"type": "message",
+									"value": "You know that these rocks are pretty boring and would not hold the kits’ interest for long. You realize that the kits probably would have left here quickly unless there was a reason they couldn’t. You know that if an animal attacked or some other danger arose, the kits would probably try to hide. You remember that there are usually caves in rock walls such as this."
+								}
+							]
+						}
+					}
+				]
+			},
+			{
+				"type": "choose",
+				"outcomes": {
+					"Follow the butterfly": [
+						{
+							"type": "runfunction",
+							"id": "meadows"
+						}
+					],
+					"Small Cave Entrance": [
+						{
+							"type": "message",
+							"value": "As you get near the small cave entrance, you can hear the kits clearly. They seem to be half crying and half whispering."
+						},
+						{
+							"type": "message",
+							"value": "When you get right up to the cave entrance, you can see that it’s too small for you or the kits to fit through, but inside you can see the kits all standing on a ledge huddled together."
+						},
+						{
+							"type": "choose",
+							"outcomes": {
+								"Attack the snakes": [
+									{
+										"type": "runfunction",
+										"id": "snakes"
+									}
+								]
+							}
+						}
+					]
+				}
+			}
+		]
+	},
+	{
+		"type": "function",
+		"id": "snakes",
+		"value": [
+			{
+				"type": "message",
+				"value": "Snake fight"
+			},
+			{
+				"type": "fight",
+				"health": 4,
+				"strength": 3,
+				"jump": 5,
+				"attack": "poisonbite",
+				"onwin": "end",
+				"ontimeout": "snakeleave",
+				"onknockout": "hurt",
+				"amount": 2,
+				"rounds": 6
+			}
+		]
+	},
+	{
+		"type": "function",
+		"id": "snakeleave",
+		"value": [
+			{
+				"type": "message",
+				"value": "The sankes slither under some large rocks and disappear."
+			},
+			{
+				"type": "runfunction",
+				"id": "end"
+			}
+		]
+	},
+	{
+		"type": "function",
+		"id": "end",
+		"value": [
+			{
+				"type": "message",
+				"value": "After you defeat the snakes, the kits come bounding out of the cave. They’re tired, hungry, and scared, but still safe and healthy."
+			},
+			{
+				"type": "message",
+				"value": "When you get back to the camp, the kits immediately begin telling tales about how big and strong and brave you all were. And it’s true; you were. You saved the kits!"
+			},
+			{
+				"type": "exp"
+			}
+		]
+	},
+	{
+		"type": "choose",
+		"outcomes": {
+			"Meadow": [
+				{
+					"type": "runfunction",
+					"id": "meadows"
+				}
+			],
+			"Tracks": [
+				{
+					"type": "runfunction",
+					"id": "tracks"
+				}
+			]
+		}
+	}
 ]
