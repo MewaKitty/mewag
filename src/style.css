@@ -1,533 +1,549 @@
-@font-face {font-family: "Refugio Refined NF"; src: url("./Refugio Refined NF.ttf") format("truetype")}
+@font-face {
+	font-family: "Refugio Refined NF";
+	src: url("./assets/fonts/Refugio Refined NF.ttf") format("truetype");
+}
 
-@font-face {font-family: "Arno Pro"; src: url("./Arno Pro.otf") format("opentype"); font-weight: normal;}
+@font-face {
+	font-family: "Arno Pro";
+	src: url("./assets/fonts/Arno Pro.otf") format("opentype");
+	font-weight: normal;
+}
 
-@font-face {font-family: "Arno Pro"; src: url("./Arno Pro Semibold.otf") format("opentype"); font-weight: 600;}
+@font-face {
+	font-family: "Arno Pro";
+	src: url("./assets/fonts/Arno Pro Semibold.otf") format("opentype");
+	font-weight: 600;
+}
 
-@font-face {font-family: "Kidprint"; src: url("./Kidprint.ttf") format("truetype")}
+@font-face {
+	font-family: "Kidprint";
+	src: url("./assets/fonts/Kidprint.ttf") format("truetype");
+}
 
 body {
-  font-size: 15pt;
-  font-family: "Arno Pro";
-  font-weight: 600;
-  image-rendering: pixelated;
-  background: url("background.png");
-  background-repeat: no-repeat;
-  background-size: cover;
+	font-size: 15pt;
+	font-family: "Arno Pro";
+	font-weight: 600;
+	image-rendering: pixelated;
+	background: url("./assets/img/background.png");
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 h2 {
-  font-family: "Refugio Refined NF";
-  font-size: 32px;
-  color: #79060d;
+	font-family: "Refugio Refined NF";
+	font-size: 32px;
+	color: #79060d;
 }
 
 button {
-  background-color: #d7dbaa;
-  border: 1px solid #777a5e;
-  color: #79060d;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-family: "Refugio Refined NF";
-  font-size: 24px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+	background-color: #d7dbaa;
+	border: 1px solid #777a5e;
+	color: #79060d;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-family: "Refugio Refined NF";
+	font-size: 24px;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
 }
 
 input {
-  border: none;
-  border-radius: 0;
-  border-bottom: 2px solid black;
-  font-family: "Kidprint";
-  text-align: center;
-  width: 16vw;
-  height: 3vh;
-  font-size: 32px;
+	border: none;
+	border-radius: 0;
+	border-bottom: 2px solid black;
+	font-family: "Kidprint";
+	text-align: center;
+	width: 16vw;
+	height: 3vh;
+	font-size: 32px;
 }
 
 .clans {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
 }
 
 .clan {
-  outline: 2px solid #000000;
-  background-color: white;
-  padding: 5%;
-  width: 35%;
-  height: 20vh;
-  position: relative;
+	outline: 2px solid #000000;
+	background-color: white;
+	padding: 5%;
+	width: 35%;
+	height: 20vh;
+	position: relative;
 }
 
 .break {
-  flex-basis: 100%;
-  height: 0;
+	flex-basis: 100%;
+	height: 0;
 }
 
 .header {
-  width: 100%;
-  height: 25%;
-  top: 0;
-  left: 0;
-  position: absolute;
-  background-color: white;
+	width: 100%;
+	height: 25%;
+	top: 0;
+	left: 0;
+	position: absolute;
+	background-color: white;
 }
 
 .header h2 {
-  position: relative;
-  bottom: 25%;
+	position: relative;
+	bottom: 25%;
 }
 
 .header span {
-  color: #569550;
-  position: absolute;
-  top: 35%;
-  right: 5%;
-  z-index: 2;
+	color: #569550;
+	position: absolute;
+	top: 35%;
+	right: 5%;
+	z-index: 2;
 }
 .content {
-  width: 100%;
-  height: 50%;
-  position: absolute;
-  top: 25%;
-  left: 0;
-  background-color: #e9f0f7;
-  overflow: scroll;
-  padding: 5%;
-  overflow-wrap: break-word;
-  box-sizing: border-box;
+	width: 100%;
+	height: 50%;
+	position: absolute;
+	top: 25%;
+	left: 0;
+	background-color: #e9f0f7;
+	overflow: scroll;
+	padding: 5%;
+	overflow-wrap: break-word;
+	box-sizing: border-box;
 }
 
 .footer {
-  width: 100%;
-  height: 25%;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  background-color: #c4c8ce;
+	width: 100%;
+	height: 25%;
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	background-color: #c4c8ce;
 }
 
 .footer button {
-  height: 75%;
-  padding: 7px 32px;
-  position: relative;
-  top: 10%;
+	height: 75%;
+	padding: 7px 32px;
+	position: relative;
+	top: 10%;
 }
 
 .gameBox {
-  width: 85vw;
-  height: 60vh;
-  background-color: white;
-  outline: 2px solid black;
+	width: 85vw;
+	height: 60vh;
+	background-color: white;
+	outline: 2px solid black;
 }
 
 #catName {
-  position: absolute;
-  top: 22%; /*30%*/
-  left: 10%;
-  font-size: 24px;
+	position: absolute;
+	top: 22%; /*30%*/
+	left: 10%;
+	font-size: 24px;
 }
 
 #catAge {
-  position: absolute;
-  top: 28%; /*20%*/
-  left: 10%;
-  font-size: 24px;
+	position: absolute;
+	top: 28%; /*20%*/
+	left: 10%;
+	font-size: 24px;
 }
 
 #catAge input {
-  width: 4vw;
+	width: 4vw;
 }
 
 .ability {
-  width: 12vw;
-  height: 12vh;
-  outline: 2px solid black;
+	width: 12vw;
+	height: 12vh;
+	outline: 2px solid black;
 }
 
 .strength {
-  position: absolute;
-  right: 40%;
-  top: 21%;
-  background-color: white;
+	position: absolute;
+	right: 40%;
+	top: 21%;
+	background-color: white;
 }
 
 .strength .abilityHeader {
-  background-color: #79060d;
+	background-color: #79060d;
 }
 
 .intelligence {
-  position: absolute;
-  right: 25%;
-  top: 21%;
-  background-color: white;
+	position: absolute;
+	right: 25%;
+	top: 21%;
+	background-color: white;
 }
 
 .intelligence .abilityHeader {
-  background-color: #a7b63e;
+	background-color: #a7b63e;
 }
 
 .spirit {
-  position: absolute;
-  right: 10%;
-  top: 21%;
-  background-color: white;
+	position: absolute;
+	right: 10%;
+	top: 21%;
+	background-color: white;
 }
-
 
 .spirit .abilityHeader {
-  background-color: #6ca0d6;
+	background-color: #6ca0d6;
 }
 
-
 .abilityHeader {
-  height: 5vh;
-  font-size: 24px;
-  font-family: "Refugio Refined NF";
-  color: white;
-  padding: 5px;
-  box-sizing: border-box;
+	height: 5vh;
+	font-size: 24px;
+	font-family: "Refugio Refined NF";
+	color: white;
+	padding: 5px;
+	box-sizing: border-box;
 }
 
 .abilityCount {
-  font-size: 32px;
-  height: 7vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	font-size: 32px;
+	height: 7vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .ability button {
-  height: 30%;
-  width: 25%;
-  padding: initial;
+	height: 30%;
+	width: 25%;
+	padding: initial;
 }
 
 .ability .plus {
-  position: absolute;
-  left: 5%;
-  bottom: 5%;
+	position: absolute;
+	left: 5%;
+	bottom: 5%;
 }
 
 .ability .minus {
-  position: absolute;
-  right: 5%;
-  bottom: 5%;
+	position: absolute;
+	right: 5%;
+	bottom: 5%;
 }
 
 tr:first-child td {
-  border-top: 2px solid #6ca0d6;
+	border-top: 2px solid #6ca0d6;
 }
 
 td:first-child {
-  border-left: 2px solid #6ca0d6;
+	border-left: 2px solid #6ca0d6;
 }
 
 tr:last-child td {
-  border-bottom: 2px solid #6ca0d6;
+	border-bottom: 2px solid #6ca0d6;
 }
 
 td:last-child {
-  border-right: 2px solid #6ca0d6;
+	border-right: 2px solid #6ca0d6;
 }
 
 table {
-  width: 40%;
+	width: 40%;
 }
 
 td {
-  background: white;
-  border: 1px solid black;
-  width: 10%;
-  padding: 5px 10px;
+	background: white;
+	border: 1px solid black;
+	width: 10%;
+	padding: 5px 10px;
 }
 
 td .skillType {
-  padding-left: .5ch;
-  font-weight: normal;
+	padding-left: 0.5ch;
+	font-weight: normal;
 }
 
 td .skillCount {
-  font-family: Kidprint;
-  font-size: 24px;
-  padding-left: 1ch;
+	font-family: Kidprint;
+	font-size: 24px;
+	padding-left: 1ch;
 }
 
-.gameBox #chooseSkills, .gameBox #upgradeSkills {
-  position: absolute;
-  top: 52%;
-  left: 10%; /*35%*/
-  width: 80%;
+.gameBox #chooseSkills,
+.gameBox #upgradeSkills {
+	position: absolute;
+	top: 52%;
+	left: 10%; /*35%*/
+	width: 80%;
 }
 
 #chooseKnacks {
-  position: absolute;
-  top: 36%;
-  left: 10%;
-  width: 50%;
-  font-family: Kidprint;
-  font-size: 16px;
+	position: absolute;
+	top: 36%;
+	left: 10%;
+	width: 50%;
+	font-family: Kidprint;
+	font-size: 16px;
 }
 
-#chooseKnacks tr, #upgradeKnacks tr {
-  height: 6vh;
+#chooseKnacks tr,
+#upgradeKnacks tr {
+	height: 6vh;
 }
 
 #upgradeKnacks {
-  position: absolute;
-  top: 24%;
-  left: 10%;
-  width: 62%;
-  font-family: Kidprint;
-  font-size: 10px;
+	position: absolute;
+	top: 24%;
+	left: 10%;
+	width: 62%;
+	font-family: Kidprint;
+	font-size: 10px;
 }
 
 .finished {
-  position: absolute;
-  bottom: 5%;
-  left: 45%;
+	position: absolute;
+	bottom: 5%;
+	left: 45%;
 }
 
 #abilityPoints {
-  position: absolute;
-  left: 10%;
-  top: 37%;
-  font-family: Kidprint;
-  font-size: 32px;
+	position: absolute;
+	left: 10%;
+	top: 37%;
+	font-family: Kidprint;
+	font-size: 32px;
 }
 
 #skillPoints {
-  position: absolute;
-  left: 70%;
-  top: 37%;
-  font-family: Kidprint;
-  font-size: 32px;
+	position: absolute;
+	left: 70%;
+	top: 37%;
+	font-family: Kidprint;
+	font-size: 32px;
 }
 
-
 #knackPoints {
-  position: absolute;
-  left: 25%;
-  top: 25%;
-  font-family: Kidprint;
-  font-size: 32px;
+	position: absolute;
+	left: 25%;
+	top: 25%;
+	font-family: Kidprint;
+	font-size: 32px;
 }
 
 #knackUpgrades2 {
-  position: absolute;
-  left: 25%;
-  top: 15%;
-  font-family: Kidprint;
-  font-size: 32px;
+	position: absolute;
+	left: 25%;
+	top: 15%;
+	font-family: Kidprint;
+	font-size: 32px;
 }
 
 table .plus {
-  height: 5%;
-  width: 12%;
-  padding: initial;
-  float: right;
+	height: 5%;
+	width: 12%;
+	padding: initial;
+	float: right;
 }
 
 table .minus {
-  height: 5%;
-  width: 12%;
-  padding: initial;
-  float: right;
+	height: 5%;
+	width: 12%;
+	padding: initial;
+	float: right;
 }
 
 #knackList {
-  position: absolute;
-  left: 62%;
-  height: 66%;
-  width: 30%;
-  overflow: scroll;
-  border-left: 2px solid #6ca0d6;
-  padding: 16px;
-  box-sizing: border-box;
+	position: absolute;
+	left: 62%;
+	height: 66%;
+	width: 30%;
+	overflow: scroll;
+	border-left: 2px solid #6ca0d6;
+	padding: 16px;
+	box-sizing: border-box;
 }
 
-#knackList .knack, #knackList2 .knack {
-  border-bottom: 2px solid black;
-  padding: 5px;
+#knackList .knack,
+#knackList2 .knack {
+	border-bottom: 2px solid black;
+	padding: 5px;
 }
 
-#knackList .knack:last-child, #knackList2 .knack:last-child {
-  border-bottom: initial;
+#knackList .knack:last-child,
+#knackList2 .knack:last-child {
+	border-bottom: initial;
 }
 
 #knackList2 {
-  position: absolute;
-  left: 75%;
-  height: 66%;
-  width: 17%;
-  overflow: scroll;
-  border-left: 2px solid #6ca0d6;
-  padding: 16px;
-  box-sizing: border-box;
+	position: absolute;
+	left: 75%;
+	height: 66%;
+	width: 17%;
+	overflow: scroll;
+	border-left: 2px solid #6ca0d6;
+	padding: 16px;
+	box-sizing: border-box;
 }
 
 #catNameText {
-  position: absolute;
-  top: 5%;
-  font-family: Kidprint;
-  font-size: 32px;
+	position: absolute;
+	top: 5%;
+	font-family: Kidprint;
+	font-size: 32px;
 }
 
 #catDetails {
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  left: 62%;
-  height: 66%;
-  width: 30.5%;
-  border-left: 2px solid black;
-  padding: 16px;
-  box-sizing: border-box;
-  background-color: #ffeec8;
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	left: 62%;
+	height: 66%;
+	width: 30.5%;
+	border-left: 2px solid black;
+	padding: 16px;
+	box-sizing: border-box;
+	background-color: #ffeec8;
 }
 
 .chipBar {
-  width: 70%;
-  height: 5%;
-  background-color: gray;
-  position: absolute;
-  top: 25%;
-  overflow: hidden;
+	width: 70%;
+	height: 5%;
+	background-color: gray;
+	position: absolute;
+	top: 25%;
+	overflow: hidden;
 }
 
 .currentChips {
-  width: 100%;
-  height: 100%;
-  background-color: #79070c;
-  float: left;
-  color: white;
-  transition: width 1s;
-  box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	background-color: #79070c;
+	float: left;
+	color: white;
+	transition: width 1s;
+	box-sizing: border-box;
 }
 
 #strengthBar {
-  top: 15%;
+	top: 15%;
 }
 
 #currentStrength {
-  background-color: #79060d;
+	background-color: #79060d;
 }
 
 #intelligenceBar {
-  top: 25%;
+	top: 25%;
 }
 
 #currentIntelligence {
-  background-color: #a7b63e;
+	background-color: #a7b63e;
 }
 
 #spiritBar {
-  top: 35%;
+	top: 35%;
 }
 
 #currentSpirit {
-  background-color: #6ca0d6;
+	background-color: #6ca0d6;
 }
 
-
-
 #catDetails .strength {
-  position: absolute;
-  top: 45%;
-  left: 7%;
+	position: absolute;
+	top: 45%;
+	left: 7%;
 }
 
 #catDetails .intelligence {
-  position: absolute;
-  top: 45%;
-  left: 55%;
+	position: absolute;
+	top: 45%;
+	left: 55%;
 }
 
 #catDetails .spirit {
-  position: absolute;
-  top: 70%;
-  left: 30%;
+	position: absolute;
+	top: 70%;
+	left: 30%;
 }
 
 #gameText {
-  position: absolute;
-  left: 7.5%;
-  width: 54.5%;
-  height: 66%;
-  padding: 16px;
-  box-sizing: border-box;
+	position: absolute;
+	left: 7.5%;
+	width: 54.5%;
+	height: 66%;
+	padding: 16px;
+	box-sizing: border-box;
 }
 
 #buttons {
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  flex-wrap: wrap;
-  bottom: 5%;
-  width: 100%;
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	flex-wrap: wrap;
+	bottom: 5%;
+	width: 100%;
 }
 
 #buttons button {
-  margin-left: 8px;
-  margin-right: 8px;
+	margin-left: 8px;
+	margin-right: 8px;
 }
 
 .upgradeLeft {
-  position: relative;
-  top: 5%;
-  font-size: 32px;
+	position: relative;
+	top: 5%;
+	font-size: 32px;
 }
 
 #abilityUpgrader .strength {
-  position: absolute;
-  top: 35%;
-  left: 25%;
+	position: absolute;
+	top: 35%;
+	left: 25%;
 }
 
 #abilityUpgrader .intelligence {
-  position: absolute;
-  top: 35%;
-  left: 45%;
+	position: absolute;
+	top: 35%;
+	left: 45%;
 }
 
-#abilityUpgrader .spirit, #intsptUpgrader .spirit {
-  position: absolute;
-  top: 35%;
-  left: 65%;
+#abilityUpgrader .spirit,
+#intsptUpgrader .spirit {
+	position: absolute;
+	top: 35%;
+	left: 65%;
 }
 
 #intsptUpgrader .intelligence {
-  position: absolute;
-  top: 35%;
-  left: 25%;
+	position: absolute;
+	top: 35%;
+	left: 25%;
 }
 
-#exportCat, #importCat {
-  position: absolute;
-  bottom: 10%;
-  left: 42%;
+#exportCat,
+#importCat {
+	position: absolute;
+	bottom: 10%;
+	left: 42%;
 }
 
-#exportCode, #importCode {
-  position: absolute;
-  bottom: 25%;
-  left: 38%;
-  background-color: #d7dbaa;
-  border: 1px solid #777a5e;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-family: Kidprint;
-  font-size: 24px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+#exportCode,
+#importCode {
+	position: absolute;
+	bottom: 25%;
+	left: 38%;
+	background-color: #d7dbaa;
+	border: 1px solid #777a5e;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-family: Kidprint;
+	font-size: 24px;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
 }

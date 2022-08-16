@@ -1,12 +1,7 @@
 {
 	"name": "meowag",
 	"packageManager": "yarn@3.2.2",
-	"dependencies": {
-		"lws": "^4.1.2",
-		"lws-index": "^3.1.1",
-		"lws-static": "^3.1.0"
-	},
 	"scripts": {
-		"dev": "lws --stack lws-static lws-index"
+		"dev": "ws -d src"
 	}
 }
