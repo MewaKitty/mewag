@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTML</title>
+  <!-- HTML -->
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h2 align="center" id="title">Welcome!</h2>
+  <div align="center" id="mainMenu">
+    <p>Welcome to the game.</p>
+    <button id="playButton">Play</button>
+    <br/>
+    <button id="importCat">Import Cat</button>
+    <textarea id="importCode"></textarea>
+  </div>
+  <div align="center" id="chooseClan" hidden>
+    <p>Choose a clan.</p>
+    <div class="clans">
+      <div class="clan">
+        <div class="header">
+          <h2>ThunderClan</h2><span>Ponder Skill +1</span>
+        </div>
+        <div class="content">While all the Clans enjoy times of peace and relative calm, ThunderClan is probably the Clan that does the most to promote quiet coexistence for all cats. These cats are respectful of other Clans, their habits, and their territories. ThunderClan has a long history of speaking out against injustice and seeking to mediate differences between individual cats and even whole Clans.
+          While Thunderclan cats believe strongly in living up to both the letter and the intent of the warrior code, they also are not afraid to challenge traditions and laws that seem unfair. ThunderClan is most interested in seeing that all cats are treated with justice and respect.
+          Some Clans interpret ThunderClan’s willingness to compromise as a weakness. They believe that the Clan spends so much time talking about “fairness” because they lack the strength to protect themselves from aggressors. But the members of ThunderClan are more than ready to back up their beliefs with tooth and claw if necessary.</div>
+        <div class="footer"><button id="thunderSelect">Select</button></div>
+      </div>
+      <div class="clan">
+        <div class="header">
+          <h2>RiverClan</h2><span>Swim Skill +1</span>
+        </div>
+        <div class="content">Each Clan has many impressive qualities, but members of RiverClan are especially proud of their Clan and its history. Cats in this Clan tend to be sleek and have long, glossy coats.
+          RiverClan cats are fiercely self-sufficient. Because of their close ties to the water, RiverClan cats are usually excellent swimmers who don’t mind being wet the way other cats often do.
+          Some other Clans think that RiverClan is a little too proud, and that makes it more difficult for them to weather hard times. But the members of RiverClan say that they only do what every other Clan does—use any means necessary to keep themselves strong and healthy.</div>
+        <div class="footer"><button id="riverSelect">Select</button></div>
+      </div>
+      <div class="break"></div>
+      <div class="clan">
+        <div class="header">
+          <h2>WindClan</h2><span>Listen Skill +1</span>
+        </div>
+        <div class="content">Every Clan suffers through difficult times occasionally, but WindClan has a more troubled history than most. These cats are the most susceptible to extremes of weather and incursions by animals, Twolegs, and even other cats. But in the end they always come back to reclaim what is theirs.
+          Cats in WindClan must be quick and have extra-sharp senses (particularly hearing) in order to successfully hunt on the open moor. As a result, they are especially difficult to take by surprise.
+          Some other Clans interpret WindClan’s history of coming and going as indicating that these cats are cowardly—running away from threats rather than facing them. They think that living on a barren plain has made them soft, weak, and unfit to be called warriors. But the cats of WindClan will point out that there is no honor to be gained from unnecessary fighting. And no one has ever succeeded in permanently taking territory away from their Clan.</div>
+        <div class="footer"><button id="windSelect">Select</button></div>
+      </div>
+      <div class="clan">
+        <div class="header">
+          <h2>ShadowClan</h2><span>Sneak Skill +1</span>
+        </div>
+        <div class="content">All of the Clans value their privacy, but none more so than ShadowClan. Members pride themselves on being the most aggressive and battle-hardened Clan cats, always ready for a fight and never needing to bow their heads or give concessions to anyone. Living in the wildest of territories, they believe that survival of the fittest is a basic part of the warrior code. If a Clan cannot defend its territory against invasion, then
+          that Clan doesn’t deserve that land after all. If you’re strong, clever, or sneaky enough to get something, then it rightfully belongs to you.
+          Some Clans interpret ShadowClan’s aggression and deception as proof that these cats are nothing more than battle hungry, untrustworthy sneaks. But the cats of ShadowClan believe they have the truest warriors of any Clan, and if anyone wants to contest that claim they’ll have to back it up with claws and fury.</div>
+        <div class="footer"><button id="shadowSelect">Select</button></div>
+      </div>
+    </div>
+  </div>
+  <div align="center" id="createCat" hidden>
+    <p>Welcome to the game.</p>
+    <div class="gameBox">
+      <span id="catName">Cat's Name: <input type="text" id="catNameI" /></span>
+      <span id="catAge">Cat's Age: <input type="number" id="catAgeI" /> moons</span>
+      <div class="ability strength">
+        <div class="abilityHeader">Strength</div><button id="strengthPlus" class="plus">+</button><span class="abilityCount" id="strengthCount">0</span><button id="strengthMinus" class="minus">-</button>
+      </div>
+      <div class="ability intelligence">
+        <div class="abilityHeader">Intelligence</div><button id="intelligencePlus" class="plus">+</button><span class="abilityCount" id="intelligenceCount">0</span><button id="intelligenceMinus" class="minus">-</button>
+      </div>
+      <div class="ability spirit">
+        <div class="abilityHeader">Spirit</div><button id="spiritPlus" class="plus">+</button><span class="abilityCount" id="spiritCount">0</span><button id="spiritMinus" class="minus">-</button>
+      </div>
+      <table cellspacing="0" id="chooseSkills"></table>
+      <span id="abilityPoints">Ability Points: <span id="abilityPointsC">11</span></span>
+      <span id="skillPoints">Skill Points: <span id="skillPointsC">3</span></span>
+    </div>
+    <button id="doneCreating" class="finished">Done</button>
+  </div>
+  <div align="center" id="knackChooser" hidden>
+    <div class="gameBox">
+      <table cellspacing="0" id="chooseKnacks">
+        <tr>
+          <td id="knackc0"></td>
+          <td id="knackc1"></td>
+          <td id="knackc2"></td>
+        </tr>
+      </table>
+      <span id="knackPoints">Knack Points: <span id="knackPointsC">3</span></span>
+      <div id="knackList"></div>
+    </div>
+    <button id="saveCat" class="finished">Save Cat</button>
+  </div>
+  <div align="center" id="gameChooser" hidden>
+    <div class="gameBox">
+      <br/>
+      <button id="mission1">Saving the Kits</button>
+      <br/>
+      <button id="mission2">Fever Dreams</button>
+      <button id="exportCat">Export Cat</button>
+      <textarea id="exportCode"></textarea>
+    </div>
+  </div>
+  <div align="center" id="mission" hidden>
+    <div class="gameBox">
+      <div id="gameText">
+        <div id="textContent">Meowum catum purr hissit</div>
+        <div id="buttons"></div>
+      </div>
+      <div id="catDetails">
+        <span id="catNameText">Cat Name</span>
+        <div class="chipBar" id="strengthBar">
+          <div class="currentChips" id="currentStrength">5/5 Strength Chips</div>
+        </div>
+        <div class="chipBar" id="intelligenceBar">
+          <div class="currentChips" id="currentIntelligence">5/5 Intelligence Chips</div>
+        </div>
+        <div class="chipBar" id="spiritBar">
+          <div class="currentChips" id="currentSpirit">5/5 Spirit Chips</div>
+        </div>
+        <div class="ability strength">
+          <div class="abilityHeader">Strength</div><span class="abilityCount" id="strengthCount2">0</span>
+        </div>
+        <div class="ability intelligence">
+          <div class="abilityHeader">Intelligence</div><span class="abilityCount" id="intelligenceCount2">0</span>
+        </div>
+        <div class="ability spirit">
+          <div class="abilityHeader">Spirit</div><span class="abilityCount" id="spiritCount2">0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div align="center" id="skillUpgrader" hidden>
+    <p>Upgrade some skills</p>
+    <div class="gameBox">
+      <table cellspacing="0" id="upgradeSkills"></table>
+      <span class="upgradeLeft">Skill Points: <span id="skillUpgrades">3</span></span>
+    </div>
+    <button id="doneUpgradingSkills" class="finished">Save Cat</button>
+  </div>
+  <div align="center" id="knackUpgrader" hidden>
+    <div class="gameBox">
+      <table cellspacing="0" id="upgradeKnacks">
+        <tr>
+          <td id="knacku0"></td>
+          <td id="knacku1"></td>
+          <td id="knacku2"></td>
+          <td id="knacku3"></td>
+          <td id="knacku4"></td>
+        </tr>
+        <tr>
+          <td id="knacku5"></td>
+          <td id="knacku6"></td>
+          <td id="knacku7"></td>
+          <td id="knacku8"></td>
+          <td id="knacku9"></td>
+        </tr>
+        <tr>
+          <td id="knacku10"></td>
+          <td id="knacku11"></td>
+          <td id="knacku12"></td>
+          <td id="knacku13"></td>
+          <td id="knacku14"></td>
+        </tr>
+        <tr>
+          <td id="knacku15"></td>
+          <td id="knacku16"></td>
+          <td id="knacku17"></td>
+          <td id="knacku18"></td>
+          <td id="knacku19"></td>
+        </tr>
+        <tr>
+          <td id="knacku20"></td>
+          <td id="knacku21"></td>
+          <td id="knacku22"></td>
+          <td id="knacku23"></td>
+          <td id="knacku24"></td>
+        </tr>
+      </table>
+      <span id="knackUpgrades2">Knack Points: <span id="knackUpgrades">3</span></span>
+      <div id="knackList2"></div>
+    </div>
+    <button id="doneUpgradingKnacks" class="finished">Save Cat</button>
+  </div>
+  <div align="center" id="abilityUpgrader" hidden>
+    <p>Upgrade some abilities</p>
+    <div class="gameBox">
+      <span class="upgradeLeft">Ability Points: <span id="abilityUpgrades">3</span></span>
+      <div class="ability strength">
+        <div class="abilityHeader">Strength</div><button id="strengthPlus2" class="plus">+</button><span class="abilityCount" id="strengthCount3">0</span><button id="strengthMinus2" class="minus">-</button>
+      </div>
+      <div class="ability intelligence">
+        <div class="abilityHeader">Intelligence</div><button id="intelligencePlus2" class="plus">+</button><span class="abilityCount" id="intelligenceCount3">0</span><button id="intelligenceMinus2" class="minus">-</button>
+      </div>
+      <div class="ability spirit">
+        <div class="abilityHeader">Spirit</div><button id="spiritPlus2" class="plus">+</button><span class="abilityCount" id="spiritCount3">0</span><button id="spiritMinus2" class="minus">-</button>
+      </div>
+    </div>
+    <button id="doneUpgradingAbilities" class="finished">Save Cat</button>
+  </div>
+  <div align="center" id="intsptUpgrader" hidden>
+    <p>Upgrade some abilities</p>
+    <div class="gameBox">
+      <span class="upgradeLeft">Int/Spt Points: <span id="intsptUpgrades">3</span></span>
+      <div class="ability intelligence">
+        <div class="abilityHeader">Intelligence</div><button id="intelligencePlus4" class="plus">+</button><span class="abilityCount" id="intelligenceCount4">0</span><button id="intelligenceMinus4" class="minus">-</button>
+      </div>
+      <div class="ability spirit">
+        <div class="abilityHeader">Spirit</div><button id="spiritPlus4" class="plus">+</button><span class="abilityCount" id="spiritCount4">0</span><button id="spiritMinus4" class="minus">-</button>
+      </div>
+    </div>
+    <button id="doneUpgradingIntspt" class="finished">Save Cat</button>
+  </div>
+  
+  <!-- Project -->
+  <script src="main.js"></script>
+</body>
+
+</html>
