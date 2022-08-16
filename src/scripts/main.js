@@ -262,9 +262,9 @@ knacks.forEach((c, i) => {
 	knackDiv.innerHTML = c;
 	knackDiv.addEventListener("click", () => {
 		let knackIndex = null;
-		for (let i = 0; i < 25; i++) {
-			if (cat.knacks[i] === undefined) {
-				knackIndex = i;
+		for (let j = 0; j < 25; j++) {
+			if (cat.knacks[j] === undefined) {
+				knackIndex = j;
 				break;
 			}
 		}
@@ -464,29 +464,6 @@ let intLost = 0;
 let sptLost = 0;
 let id = null;
 
-const abilityCheck = async c => {
-	for (const x of Object.entries(c.outcomes).sort((a, b) => b[0] - a[0])) {
-		if (!Array.isArray(c.value)) {
-			if (
-				cat.abilities[c.value] + (c.change ? varScope[c.change] : 0) >=
-				x[0]
-			) {
-				await run(x[1]);
-				break;
-			}
-		} else {
-			let check = 0;
-			c.value.map(xa => {
-				check += cat.abilities[skillData[xa]];
-			});
-
-			if (check + (c.change ? varScope[c.change] : 0) >= x[0]) {
-				await run(x[1]);
-				break;
-			}
-		}
-	}
-};
 
 const knackCheck = async c => {
 	for (const x of Object.entries(c.outcomes).sort((a, b) => b[0] - a[0])) {
@@ -497,7 +474,7 @@ const knackCheck = async c => {
 			}
 		} else {
 			let check = 0;
-			c.value.map(xa => {
+			c.value.map(() => {
 				check += Object.values(cat.knacks).includes(c.value);
 			});
 			if (check >= x[0]) {
@@ -1077,7 +1054,7 @@ const run = async actions => {
 					createButton(
 						["Strength", "Intelligence", "Spirit"][x.value],
 						async () => {
-							await abilityCheck(x);
+							await abilityCheckBtns(x);
 							res1();
 						}
 					);
