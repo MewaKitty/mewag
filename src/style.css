@@ -20,6 +20,20 @@
 	src: url("./assets/fonts/Kidprint.ttf") format("truetype");
 }
 
+* {
+	box-sizing: border-box;
+}
+
+*[hidden] {
+	display: none !important;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
 	font-size: 15pt;
 	font-family: "Arno Pro";
@@ -28,13 +42,17 @@ body {
 	background: url("./assets/img/background.png");
 	background-repeat: no-repeat;
 	background-size: cover;
+    display: flex;
+    flex-direction: column;
 }
 
 h2 {
 	font-family: "Refugio Refined NF";
 	font-size: 32px;
 	color: #79060d;
-    text-align: center;
+	text-align: center;
+    padding: 0.83em 0;
+    margin: 0;
 }
 
 button {
@@ -51,6 +69,8 @@ button {
 	border-bottom-right-radius: 4px;
 	border-top-left-radius: 4px;
 	border-top-right-radius: 4px;
+	width: fit-content;
+    margin: 0 auto;
 }
 
 input {
@@ -69,15 +89,17 @@ input {
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
+    width: 80%;
 }
 
 .clan {
 	outline: 2px solid #000000;
 	background-color: white;
-	padding: 5%;
-	width: 35%;
-	height: 20vh;
-	position: relative;
+	width: 50%;
+	height: 12em;
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
 
 .break {
@@ -87,52 +109,51 @@ input {
 
 .header {
 	width: 100%;
-	height: 25%;
-	top: 0;
-	left: 0;
-	position: absolute;
+	height: 2.5em;
 	background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .header h2 {
-	position: relative;
-	bottom: 25%;
+    margin: 0;
+    padding: 0;
 }
 
 .header span {
 	color: #569550;
-	position: absolute;
-	top: 35%;
-	right: 5%;
 	z-index: 2;
+    position: absolute;
+    right: 1em;
+    top: 0.25em;
 }
 .content {
 	width: 100%;
 	height: 50%;
-	position: absolute;
-	top: 25%;
-	left: 0;
 	background-color: #e9f0f7;
-	overflow: scroll;
-	padding: 5%;
+	overflow-y: scroll;
+    padding: 0.5em;
 	overflow-wrap: break-word;
-	box-sizing: border-box;
+    flex-grow: 1;
 }
 
 .footer {
 	width: 100%;
-	height: 25%;
+    height: fit-content;
 	bottom: 0;
 	left: 0;
-	position: absolute;
 	background-color: #c4c8ce;
+    display: flex;
+    align-items: center;
 }
 
 .footer button {
 	height: 75%;
 	padding: 7px 32px;
-	position: relative;
 	top: 10%;
+    display: flex;
+    align-items: center;
 }
 
 .gameBox {
@@ -205,7 +226,6 @@ input {
 	font-family: "Refugio Refined NF";
 	color: white;
 	padding: 5px;
-	box-sizing: border-box;
 }
 
 .abilityCount {
@@ -363,7 +383,6 @@ table .minus {
 	overflow: scroll;
 	border-left: 2px solid #6ca0d6;
 	padding: 16px;
-	box-sizing: border-box;
 }
 
 #knackList .knack,
@@ -385,7 +404,6 @@ table .minus {
 	overflow: scroll;
 	border-left: 2px solid #6ca0d6;
 	padding: 16px;
-	box-sizing: border-box;
 }
 
 #catNameText {
@@ -404,7 +422,6 @@ table .minus {
 	width: 30.5%;
 	border-left: 2px solid black;
 	padding: 16px;
-	box-sizing: border-box;
 	background-color: #ffeec8;
 }
 
@@ -424,7 +441,6 @@ table .minus {
 	float: left;
 	color: white;
 	transition: width 1s;
-	box-sizing: border-box;
 }
 
 #strengthBar {
@@ -475,7 +491,6 @@ table .minus {
 	width: 54.5%;
 	height: 66%;
 	padding: 16px;
-	box-sizing: border-box;
 }
 
 #buttons {
@@ -525,16 +540,11 @@ table .minus {
 
 #exportCat,
 #importCat {
-	position: absolute;
-	bottom: 10%;
-	left: 42%;
+    margin-top: 1em;
 }
 
 #exportCode,
 #importCode {
-	position: absolute;
-	bottom: 25%;
-	left: 38%;
 	background-color: #d7dbaa;
 	border: 1px solid #777a5e;
 	padding: 15px 32px;
@@ -547,4 +557,25 @@ table .minus {
 	border-bottom-right-radius: 4px;
 	border-top-left-radius: 4px;
 	border-top-right-radius: 4px;
+    width: 10em;
+    margin: 0 auto;
+}
+
+#mainMenu {
+    flex-grow: 1;
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+}
+#chooseClan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.spacer {
+    flex-grow: 1;
+}
+.small-spacer {
+    flex-grow: 0.25;
 }
