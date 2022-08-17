@@ -315,12 +315,12 @@ saveCat.addEventListener("click", () => {
 const mission = document.getElementById("mission");
 
 document.getElementById("mission1").addEventListener("click", async () => {
-	adventure = await (await fetch("/missions/savethekits.json")).json();
+	adventure = await (await fetch("./missions/savethekits.json")).json();
 	startAdventure();
 });
 
 document.getElementById("mission2").addEventListener("click", async () => {
-	adventure = await (await fetch("/missions/feverdreams.json")).json();
+	adventure = await (await fetch("./missions/feverdreams.json")).json();
 	startAdventure();
 });
 
