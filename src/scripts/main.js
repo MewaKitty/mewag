@@ -1645,8 +1645,10 @@ You have ${sptChips} spirit chips.`);
 		} else if (c.type === "damage") {
 			const anChoice = async damage => {
 				for (let i = 0; i < damage; i++) {
+                    c.knockedout = false
 					if (strChips === 0 && intChips === 0 && sptChips === 0) {
 						await run(funScope[c.onknockout]);
+                        c.knockedout = true;
 						return;
 					}
 
@@ -1749,6 +1751,9 @@ You have ${sptChips} spirit chips.`);
 				}
 			};
 			await anChoice(c.value);
+            if (c.knockedout) {
+                return
+            }
 		} else if (c.type === "skillup") {
 			cat.skills[c.value] += c.amount;
 		} else if (c.type === "sleep") {

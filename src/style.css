@@ -89,13 +89,12 @@ input {
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
-    width: 80%;
 }
 
 .clan {
 	outline: 2px solid #000000;
 	background-color: white;
-	width: 50%;
+	width: 35%;
 	height: 12em;
     display: flex;
     flex-direction: column;
@@ -114,6 +113,7 @@ input {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 0.5m;
 }
 
 .header h2 {
@@ -133,7 +133,7 @@ input {
 	height: 50%;
 	background-color: #e9f0f7;
 	overflow-y: scroll;
-    padding: 0.5em;
+    padding: 1em;
 	overflow-wrap: break-word;
     flex-grow: 1;
 }
@@ -378,7 +378,7 @@ table .minus {
 #knackList {
 	position: absolute;
 	left: 62%;
-	height: 66%;
+	height: 60%;
 	width: 30%;
 	overflow: scroll;
 	border-left: 2px solid #6ca0d6;
@@ -568,6 +568,11 @@ table .minus {
 	flex-direction: column;
 }
 #chooseClan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#createCat {
     display: flex;
     flex-direction: column;
     align-items: center;

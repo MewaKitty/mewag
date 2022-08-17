@@ -156,7 +156,7 @@
 												{
 													"type": "damage",
 													"value": 1,
-													"knockedout": "knockedout"
+													"onknockout": "knockedout"
 												}
 											],
 											"5": []
@@ -408,7 +408,7 @@
 									{
 										"type": "damage",
 										"value": 2,
-										"knockout": "knockedout"
+										"onknockout": "knockedout"
 									}
 								],
 								"7": [],
@@ -416,7 +416,7 @@
 									{
 										"type": "damage",
 										"value": 4,
-										"knockout": "knockedout"
+										"onknockout": "knockedout"
 									}
 								]
 							}
