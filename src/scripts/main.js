@@ -153,15 +153,17 @@ const parsedSkills = JSON.parse(JSON.stringify(skills));
 for (let i = 0; i < parsedSkills.length; i += 5) {
 	const chunk = parsedSkills.slice(i, i + 5);
 	let column = 0;
+	console.log(chunk);
 	chunk.forEach(c => {
-		const skillPart = document.createElement("td");
+		const skillPart = document.createElement("div");
 		skillPart.innerHTML = `<b>${c}</b><span class="skillType">(${
 			["Strength", "Intelligence", "Spirit"][skillData[skills.indexOf(c)]]
-		})</span><span id="${c.toLowerCase()}Count" class="skillCount"></span><button id="${c.toLowerCase()}Plus" class="plus">+</button><button id="${c.toLowerCase()}Minus" class="minus">-</button>`;
+		})</span><span id="${c.toLowerCase()}Count" class="skillCount"></span><div class="spacer"></div><button id="${c.toLowerCase()}Plus" class="plus">+</button><button id="${c.toLowerCase()}Minus" class="minus">-</button>`;
 		column++;
 		if (skillRows[column] === undefined) {
-			skillRows[column] = document.createElement("tr");
+			skillRows[column] = document.createElement("div");
 		}
+		console.log(i);
 		skillRows[column].appendChild(skillPart);
 	});
 }
@@ -366,13 +368,13 @@ for (let i = 0; i < parsedUpgradeSkills.length; i += 5) {
 	const chunk = parsedUpgradeSkills.slice(i, i + 5);
 	let column = 0;
 	chunk.forEach(c => {
-		const skillPart = document.createElement("td");
+		const skillPart = document.createElement("div");
 		skillPart.innerHTML = `<b>${c}</b><span class="skillType">(${
 			["Strength", "Intelligence", "Spirit"][skillData[skills.indexOf(c)]]
-		})</span><span id="${c.toLowerCase()}Count2" class="skillCount"></span><button id="${c.toLowerCase()}Plus2" class="plus">+</button><button id="${c.toLowerCase()}Minus2" class="minus">-</button>`;
+		})</span><span id="${c.toLowerCase()}Count2" class="skillCount"></span><div class="spacer"></div><button id="${c.toLowerCase()}Plus2" class="plus">+</button><button id="${c.toLowerCase()}Minus2" class="minus">-</button>`;
 		column++;
 		if (upgradeSkillRows[column] === undefined) {
-			upgradeSkillRows[column] = document.createElement("tr");
+			upgradeSkillRows[column] = document.createElement("div");
 		}
 		upgradeSkillRows[column].appendChild(skillPart);
 	});
@@ -463,7 +465,6 @@ let strLost = 0;
 let intLost = 0;
 let sptLost = 0;
 let id = null;
-
 
 const knackCheck = async c => {
 	for (const x of Object.entries(c.outcomes).sort((a, b) => b[0] - a[0])) {
@@ -1402,9 +1403,7 @@ const run = async actions => {
 							setGameText("You failed to escape.");
 							clearButtons();
 							let res2 = () => {};
-							const promise2 = new Promise(
-								res => (res2 = res)
-							);
+							const promise2 = new Promise(res => (res2 = res));
 							createButton("Ok", () => res2());
 							await promise2;
 
@@ -1645,10 +1644,10 @@ You have ${sptChips} spirit chips.`);
 		} else if (c.type === "damage") {
 			const anChoice = async damage => {
 				for (let i = 0; i < damage; i++) {
-                    c.knockedout = false
+					c.knockedout = false;
 					if (strChips === 0 && intChips === 0 && sptChips === 0) {
 						await run(funScope[c.onknockout]);
-                        c.knockedout = true;
+						c.knockedout = true;
 						return;
 					}
 
@@ -1691,9 +1690,7 @@ You have ${sptChips} spirit chips.`);
 							);
 							clearButtons();
 							let res1 = () => {};
-							const promise2 = new Promise(
-								res => (res1 = res)
-							);
+							const promise2 = new Promise(res => (res1 = res));
 							createButton("Ok", res1);
 							await promise2;
 
@@ -1716,9 +1713,7 @@ You have ${sptChips} spirit chips.`);
 							);
 							clearButtons();
 							let res1 = () => {};
-							const promise2 = new Promise(
-								res => (res1 = res)
-							);
+							const promise2 = new Promise(res => (res1 = res));
 							createButton("Ok", res1);
 							await promise2;
 							await anChoice(i - damage);
@@ -1738,9 +1733,7 @@ You have ${sptChips} spirit chips.`);
 							setGameText("You don't have enough spirit chips.");
 							clearButtons();
 							let res1 = () => {};
-							const promise2 = new Promise(
-								res => (res1 = res)
-							);
+							const promise2 = new Promise(res => (res1 = res));
 							createButton("Ok", res1);
 							await promise2;
 							await anChoice(i - damage);
@@ -1751,9 +1744,9 @@ You have ${sptChips} spirit chips.`);
 				}
 			};
 			await anChoice(c.value);
-            if (c.knockedout) {
-                return
-            }
+			if (c.knockedout) {
+				return;
+			}
 		} else if (c.type === "skillup") {
 			cat.skills[c.value] += c.amount;
 		} else if (c.type === "sleep") {

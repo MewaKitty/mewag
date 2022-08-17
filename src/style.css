@@ -28,10 +28,11 @@
 	display: none !important;
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+html,
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 body {
@@ -42,8 +43,8 @@ body {
 	background: url("./assets/img/background.png");
 	background-repeat: no-repeat;
 	background-size: cover;
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 h2 {
@@ -51,8 +52,8 @@ h2 {
 	font-size: 32px;
 	color: #79060d;
 	text-align: center;
-    padding: 0.83em 0;
-    margin: 0;
+	padding: 0.83em 0;
+	margin: 0;
 }
 
 button {
@@ -70,7 +71,7 @@ button {
 	border-top-left-radius: 4px;
 	border-top-right-radius: 4px;
 	width: fit-content;
-    margin: 0 auto;
+	margin: 0 auto;
 }
 
 input {
@@ -94,11 +95,11 @@ input {
 .clan {
 	outline: 2px solid #000000;
 	background-color: white;
-	width: 35%;
+	width: 45%;
 	height: 12em;
-    display: flex;
-    flex-direction: column;
-    position: relative;
+	display: flex;
+	flex-direction: column;
+	position: relative;
 }
 
 .break {
@@ -110,50 +111,50 @@ input {
 	width: 100%;
 	height: 2.5em;
 	background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0.5m;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 0.5m;
 }
 
 .header h2 {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 .header span {
 	color: #569550;
 	z-index: 2;
-    position: absolute;
-    right: 1em;
-    top: 0.25em;
+	position: absolute;
+	right: 1em;
+	top: 0.25em;
 }
 .content {
 	width: 100%;
 	height: 50%;
 	background-color: #e9f0f7;
 	overflow-y: scroll;
-    padding: 1em;
+	padding: 1em;
 	overflow-wrap: break-word;
-    flex-grow: 1;
+	flex-grow: 1;
 }
 
 .footer {
 	width: 100%;
-    height: fit-content;
+	height: fit-content;
 	bottom: 0;
 	left: 0;
 	background-color: #c4c8ce;
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .footer button {
 	height: 75%;
 	padding: 7px 32px;
 	top: 10%;
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .gameBox {
@@ -163,17 +164,28 @@ input {
 	outline: 2px solid black;
 }
 
+#createCat .gameBox {
+    display: flex;
+    flex-direction: column;
+}
+
+#topInfo {
+	margin-top: 3%;
+	margin-left: 3%;
+	margin-right: 3%;
+	display: flex;
+}
+
+#catMainInfo {
+	display: flex;
+	flex-direction: column;
+}
+
 #catName {
-	position: absolute;
-	top: 22%; /*30%*/
-	left: 10%;
 	font-size: 24px;
 }
 
 #catAge {
-	position: absolute;
-	top: 28%; /*20%*/
-	left: 10%;
 	font-size: 24px;
 }
 
@@ -182,16 +194,16 @@ input {
 }
 
 .ability {
+	display: flex;
+	flex-direction: column;
 	width: 12vw;
 	height: 12vh;
 	outline: 2px solid black;
 }
 
 .strength {
-	position: absolute;
-	right: 40%;
-	top: 21%;
 	background-color: white;
+	margin-left: 3%;
 }
 
 .strength .abilityHeader {
@@ -199,10 +211,8 @@ input {
 }
 
 .intelligence {
-	position: absolute;
-	right: 25%;
-	top: 21%;
 	background-color: white;
+	margin-left: 3%;
 }
 
 .intelligence .abilityHeader {
@@ -210,10 +220,8 @@ input {
 }
 
 .spirit {
-	position: absolute;
-	right: 10%;
-	top: 21%;
 	background-color: white;
+	margin-left: 3%;
 }
 
 .spirit .abilityHeader {
@@ -226,67 +234,74 @@ input {
 	font-family: "Refugio Refined NF";
 	color: white;
 	padding: 5px;
-}
-
-.abilityCount {
-	font-size: 32px;
-	height: 7vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
+.abilityContent {
+	display: flex;
+	align-items: center;
+	flex-grow: 1;
+}
+
+.abilityCount {
+	font-size: 32px;
+}
+
 .ability button {
-	height: 30%;
 	width: 25%;
 	padding: initial;
+	margin-bottom: 5%;
 }
 
 .ability .plus {
-	position: absolute;
-	left: 5%;
-	bottom: 5%;
+	margin-top: auto;
 }
 
 .ability .minus {
-	position: absolute;
-	right: 5%;
-	bottom: 5%;
+	margin-top: auto;
 }
 
-tr:first-child td {
+.tableLike > div:first-child > div {
 	border-top: 2px solid #6ca0d6;
 }
 
-td:first-child {
+.tableLike > div > div:first-child {
 	border-left: 2px solid #6ca0d6;
 }
 
-tr:last-child td {
+.tableLike > div:last-child > div {
 	border-bottom: 2px solid #6ca0d6;
 }
 
-td:last-child {
+.tableLike > div > div:last-child {
 	border-right: 2px solid #6ca0d6;
 }
-
-table {
+.tableLike {
 	width: 40%;
+	display: flex;
+	flex-direction: column;
 }
-
-td {
+.tableLike > div {
+	display: flex;
+	flex-direction: row;
+}
+.tableLike > div > div {
 	background: white;
 	border: 1px solid black;
 	width: 10%;
 	padding: 5px 10px;
+	width: 100%;
+	display: flex;
 }
 
-td .skillType {
+.tableLike .skillType {
 	padding-left: 0.5ch;
 	font-weight: normal;
 }
 
-td .skillCount {
+.tableLike .skillCount {
 	font-family: Kidprint;
 	font-size: 24px;
 	padding-left: 1ch;
@@ -294,19 +309,16 @@ td .skillCount {
 
 .gameBox #chooseSkills,
 .gameBox #upgradeSkills {
-	position: absolute;
-	top: 52%;
-	left: 10%; /*35%*/
-	width: 80%;
+	width: 94%;
+    margin-left: 3%;
+    margin-bottom: 3%;
 }
 
 #chooseKnacks {
-	position: absolute;
-	top: 36%;
-	left: 10%;
-	width: 50%;
+    margin-top: 3%;
 	font-family: Kidprint;
 	font-size: 16px;
+    width: 80%;
 }
 
 #chooseKnacks tr,
@@ -329,26 +341,25 @@ td .skillCount {
 	left: 45%;
 }
 
+#pointsArea {
+	margin-top: 3%;
+	margin-left: 3%;
+	margin-right: 3%;
+	display: flex;
+}
+
 #abilityPoints {
-	position: absolute;
-	left: 10%;
-	top: 37%;
 	font-family: Kidprint;
 	font-size: 32px;
 }
 
 #skillPoints {
-	position: absolute;
-	left: 70%;
-	top: 37%;
 	font-family: Kidprint;
 	font-size: 32px;
 }
 
 #knackPoints {
-	position: absolute;
-	left: 25%;
-	top: 25%;
+	margin-top: 25%;
 	font-family: Kidprint;
 	font-size: 32px;
 }
@@ -361,24 +372,24 @@ td .skillCount {
 	font-size: 32px;
 }
 
-table .plus {
-	height: 5%;
+.tableLike .plus {
 	width: 12%;
 	padding: initial;
-	float: right;
 }
 
-table .minus {
-	height: 5%;
+.tableLike .minus {
 	width: 12%;
 	padding: initial;
-	float: right;
+}
+
+#displayArea {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 #knackList {
-	position: absolute;
-	left: 62%;
-	height: 60%;
 	width: 30%;
 	overflow: scroll;
 	border-left: 2px solid #6ca0d6;
@@ -540,7 +551,7 @@ table .minus {
 
 #exportCat,
 #importCat {
-    margin-top: 1em;
+	margin-top: 1em;
 }
 
 #exportCode,
@@ -557,30 +568,51 @@ table .minus {
 	border-bottom-right-radius: 4px;
 	border-top-left-radius: 4px;
 	border-top-right-radius: 4px;
-    width: 10em;
-    margin: 0 auto;
+	width: 10em;
+	margin: 0 auto;
+    resize: none;
+}
+#exportCode, #exportCat {
+    margin-bottom: 3%;
 }
 
 #mainMenu {
-    flex-grow: 1;
+	flex-grow: 1;
 	display: flex;
 	text-align: center;
 	flex-direction: column;
 }
 #chooseClan {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 #createCat {
-    display: flex;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#knackChooser {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#knackChooser .gameBox {
+	display: flex;
+}
+#gameChooser {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#gameChooser .gameBox {
+	display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .spacer {
-    flex-grow: 1;
+	flex-grow: 1;
 }
 .small-spacer {
-    flex-grow: 0.25;
+	flex-grow: 0.25;
 }

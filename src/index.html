@@ -137,62 +137,87 @@
 		<div id="createCat" hidden>
 			<p>Welcome to the game.</p>
 			<div class="gameBox">
-				<span id="catName"
-					>Cat's Name: <input type="text" id="catNameI"
-				/></span>
-				<span id="catAge"
-					>Cat's Age: <input type="number" id="catAgeI" /> moons</span
-				>
-				<div class="ability strength">
-					<div class="abilityHeader">Strength</div>
-					<button id="strengthPlus" class="plus">+</button
-					><span class="abilityCount" id="strengthCount">0</span
-					><button id="strengthMinus" class="minus">-</button>
+				<div id="topInfo">
+					<div id="catMainInfo">
+						<span id="catName"
+							>Cat's Name: <input type="text" id="catNameI"
+						/></span>
+
+						<span id="catAge"
+							>Cat's Age:
+							<input type="number" id="catAgeI" /> moons</span
+						>
+					</div>
+					<div class="spacer"></div>
+					<div class="ability strength">
+						<div class="abilityHeader">Strength</div>
+						<div class="abilityContent">
+							<button id="strengthPlus" class="plus">+</button
+							><span class="abilityCount" id="strengthCount"
+								>0</span
+							><button id="strengthMinus" class="minus">-</button>
+						</div>
+					</div>
+					<div class="ability intelligence">
+						<div class="abilityHeader">Intelligence</div>
+						<div class="abilityContent">
+							<button id="intelligencePlus" class="plus">+</button
+							><span class="abilityCount" id="intelligenceCount"
+								>0</span
+							><button id="intelligenceMinus" class="minus">
+								-
+							</button>
+						</div>
+					</div>
+					<div class="ability spirit">
+						<div class="abilityHeader">Spirit</div>
+						<div class="abilityContent">
+							<button id="spiritPlus" class="plus">+</button
+							><span class="abilityCount" id="spiritCount">0</span
+							><button id="spiritMinus" class="minus">-</button>
+						</div>
+					</div>
 				</div>
-				<div class="ability intelligence">
-					<div class="abilityHeader">Intelligence</div>
-					<button id="intelligencePlus" class="plus">+</button
-					><span class="abilityCount" id="intelligenceCount">0</span
-					><button id="intelligenceMinus" class="minus">-</button>
+				<div id="pointsArea">
+					<span id="abilityPoints"
+						>Ability Points:
+						<span id="abilityPointsC">11</span></span
+					>
+					<div class="spacer"></div>
+					<span id="skillPoints"
+						>Skill Points: <span id="skillPointsC">3</span></span
+					>
 				</div>
-				<div class="ability spirit">
-					<div class="abilityHeader">Spirit</div>
-					<button id="spiritPlus" class="plus">+</button
-					><span class="abilityCount" id="spiritCount">0</span
-					><button id="spiritMinus" class="minus">-</button>
-				</div>
-				<table cellspacing="0" id="chooseSkills"></table>
-				<span id="abilityPoints"
-					>Ability Points: <span id="abilityPointsC">11</span></span
-				>
-				<span id="skillPoints"
-					>Skill Points: <span id="skillPointsC">3</span></span
-				>
+				<div class="spacer"></div>
+				<div id="chooseSkills" class="tableLike"></div>
 			</div>
 			<button id="doneCreating" class="finished">Done</button>
 		</div>
-		<div align="center" id="knackChooser" hidden>
+		<div id="knackChooser" hidden>
 			<div class="gameBox">
-				<table cellspacing="0" id="chooseKnacks">
-					<tr>
-						<td id="knackc0"></td>
-						<td id="knackc1"></td>
-						<td id="knackc2"></td>
-					</tr>
-				</table>
-				<span id="knackPoints"
-					>Knack Points: <span id="knackPointsC">3</span></span
-				>
+				<div id="displayArea">
+					<div id="knackPoints"
+						>Knack Points: <span id="knackPointsC">3</span></div
+					>
+					<div id="chooseKnacks" class="tableLike">
+						<div>
+							<div id="knackc0"></div>
+							<div id="knackc1"></div>
+							<div id="knackc2"></div>
+                        </div>
+					</div>
+				</div>
 				<div id="knackList"></div>
 			</div>
 			<button id="saveCat" class="finished">Save Cat</button>
 		</div>
-		<div align="center" id="gameChooser" hidden>
+		<div id="gameChooser" hidden>
 			<div class="gameBox">
 				<br />
 				<button id="mission1">Saving the Kits</button>
 				<br />
 				<button id="mission2">Fever Dreams</button>
+                <div class="spacer"></div>
 				<button id="exportCat">Export Cat</button>
 				<textarea id="exportCode"></textarea>
 			</div>
@@ -240,7 +265,7 @@
 		<div align="center" id="skillUpgrader" hidden>
 			<p>Upgrade some skills</p>
 			<div class="gameBox">
-				<table cellspacing="0" id="upgradeSkills"></table>
+				<div id="upgradeSkills" class="tableLike"></div>
 				<span class="upgradeLeft"
 					>Skill Points: <span id="skillUpgrades">3</span></span
 				>
