@@ -469,18 +469,17 @@ input {
 }
 
 #gameText {
-	width: 54.5%;
-	height: 66%;
+	width: 100%;
+	height: 100%;
 	padding: 16px;
+    display: flex;
+    flex-direction: column;
 }
 
 #buttons {
 	display: flex;
 	justify-content: center;
-	position: absolute;
 	flex-wrap: wrap;
-	bottom: 5%;
-	width: 100%;
 }
 
 #buttons button {
