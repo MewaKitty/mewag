@@ -49,7 +49,7 @@ body {
 
 h2 {
 	font-family: "Refugio Refined NF";
-	font-size: 32px;
+	font-size: 2rem;
 	color: #79060d;
 	text-align: center;
 	padding: 0.83em 0;
@@ -65,7 +65,7 @@ button {
 	text-decoration: none;
 	display: inline-block;
 	font-family: "Refugio Refined NF";
-	font-size: 24px;
+	font-size: 1.5rem;
 	border-bottom-left-radius: 4px;
 	border-bottom-right-radius: 4px;
 	border-top-left-radius: 4px;
@@ -82,7 +82,7 @@ input {
 	text-align: center;
 	width: 16vw;
 	height: 3vh;
-	font-size: 32px;
+	font-size: 2rem;
 }
 
 .clans {
@@ -133,6 +133,7 @@ input {
 	position: absolute;
 	right: 1em;
 	top: 0.25em;
+    font-size: 1.2rem
 }
 .content {
 	width: 100%;
@@ -186,11 +187,11 @@ input {
 }
 
 #catName {
-	font-size: 24px;
+	font-size: 1.5rem;
 }
 
 #catAge {
-	font-size: 24px;
+	font-size: 1.5rem;
 }
 
 #catAge input {
@@ -234,7 +235,7 @@ input {
 
 .abilityHeader {
 	height: 5vh;
-	font-size: 24px;
+	font-size: 1.5rem;
 	font-family: "Refugio Refined NF";
 	color: white;
 	padding: 5px;
@@ -250,7 +251,7 @@ input {
 }
 
 .abilityCount {
-	font-size: 32px;
+	font-size: 2rem;
 }
 
 .ability button {
@@ -307,7 +308,7 @@ input {
 
 .tableLike .skillCount {
 	font-family: Kidprint;
-	font-size: 24px;
+	font-size: 1.5rem;
 	padding-left: 1ch;
 }
 
@@ -321,12 +322,12 @@ input {
 #chooseKnacks, #upgradeKnacks {
     margin-top: 3%;
 	font-family: Kidprint;
-	font-size: 16px;
+	font-size: 1rem;
     width: 80%;
 }
 
 #upgradeKnacks {
-	font-size: 14px;
+	font-size: 0.8rem;
 }
 
 #chooseKnacks > div {
@@ -348,18 +349,18 @@ input {
 
 #abilityPoints {
 	font-family: Kidprint;
-	font-size: 32px;
+	font-size: 2rem;
 }
 
 #skillPoints {
 	font-family: Kidprint;
-	font-size: 32px;
+	font-size: 2rem;
 }
 
 #knackPoints, #knackUpgrades2 {
 	margin-top: 25%;
 	font-family: Kidprint;
-	font-size: 32px;
+	font-size: 2rem;
 }
 
 #knackUpgrades2 {
@@ -403,7 +404,7 @@ input {
 
 #catNameText {
 	font-family: Kidprint;
-	font-size: 32px;
+	font-size: 2rem;
 }
 
 #catDetails {
@@ -488,7 +489,7 @@ input {
 }
 
 .upgradeLeft {
-	font-size: 32px;
+	font-size: 2rem;
     margin-top: 5%;
     text-align: center;
 }
@@ -526,7 +527,7 @@ input {
 	text-decoration: none;
 	display: inline-block;
 	font-family: Kidprint;
-	font-size: 24px;
+	font-size: 1.5rem;
 	border-bottom-left-radius: 4px;
 	border-bottom-right-radius: 4px;
 	border-top-left-radius: 4px;
@@ -565,8 +566,36 @@ input {
 	flex-grow: 0.25;
 }
 
+html {
+    font-size: 16px;
+}
+
+@media screen and (max-width: 1024px) {
+    .clan:first-child .header span, .clan:last-child .header span {
+        width: 4rem;
+    }
+    .header span {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .clans .clan .header span {
+        width: 2rem;
+        right: .5em;
+        font-size: 0.8rem;
+    }
+}
+
 @media screen and (max-width: 481px) {
     .clan {
         width: 100%;
+    }
+    html {
+        font-size: 0.8rem;
+    }
+    .clans .clan .header span {
+        width: unset;
+        font-size: 1rem;
     }
 }
