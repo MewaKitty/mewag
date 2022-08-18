@@ -90,13 +90,14 @@ input {
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
+    width: 80%;
 }
 
 .clan {
 	outline: 2px solid #000000;
 	background-color: white;
-	width: 45%;
-	height: 12em;
+	width: 50%;
+	height: 15em;
 	display: flex;
 	flex-direction: column;
 	position: relative;
@@ -155,7 +156,6 @@ input {
 
 .footer button {
 	height: 75%;
-	padding: 7px 32px;
 	top: 10%;
 	display: flex;
 	align-items: center;
@@ -563,4 +563,10 @@ input {
 }
 .small-spacer {
 	flex-grow: 0.25;
+}
+
+@media screen and (max-width: 481px) {
+    .clan {
+        width: 100%;
+    }
 }
