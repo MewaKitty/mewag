@@ -102,6 +102,10 @@ input {
 	position: relative;
 }
 
+.finished {
+    margin-top: 5%;
+}
+
 .break {
 	flex-basis: 100%;
 	height: 0;
@@ -314,32 +318,26 @@ input {
     margin-bottom: 3%;
 }
 
-#chooseKnacks {
+#chooseKnacks, #upgradeKnacks {
     margin-top: 3%;
 	font-family: Kidprint;
 	font-size: 16px;
     width: 80%;
 }
 
-#chooseKnacks tr,
-#upgradeKnacks tr {
+#upgradeKnacks {
+	font-size: 14px;
+}
+
+#chooseKnacks > div {
 	height: 6vh;
 }
 
-#upgradeKnacks {
-	position: absolute;
-	top: 24%;
-	left: 10%;
-	width: 62%;
-	font-family: Kidprint;
-	font-size: 10px;
+#upgradeKnacks > div {
+	height: 9vh;
 }
 
-.finished {
-	position: absolute;
-	bottom: 5%;
-	left: 45%;
-}
+
 
 #pointsArea {
 	margin-top: 3%;
@@ -358,18 +356,14 @@ input {
 	font-size: 32px;
 }
 
-#knackPoints {
+#knackPoints, #knackUpgrades2 {
 	margin-top: 25%;
 	font-family: Kidprint;
 	font-size: 32px;
 }
 
 #knackUpgrades2 {
-	position: absolute;
-	left: 25%;
-	top: 15%;
-	font-family: Kidprint;
-	font-size: 32px;
+	margin-top: 5%;
 }
 
 .tableLike .plus {
@@ -382,14 +376,14 @@ input {
 	padding: initial;
 }
 
-#displayArea {
+#displayArea, #displayArea2 {
     width: 70%;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-#knackList {
+#knackList, #knackList2 {
 	width: 30%;
 	overflow: scroll;
 	border-left: 2px solid #6ca0d6;
@@ -407,41 +401,26 @@ input {
 	border-bottom: initial;
 }
 
-#knackList2 {
-	position: absolute;
-	left: 75%;
-	height: 66%;
-	width: 17%;
-	overflow: scroll;
-	border-left: 2px solid #6ca0d6;
-	padding: 16px;
-}
-
 #catNameText {
-	position: absolute;
-	top: 5%;
 	font-family: Kidprint;
 	font-size: 32px;
 }
 
 #catDetails {
 	display: flex;
-	justify-content: center;
-	position: absolute;
-	left: 62%;
-	height: 66%;
+    flex-direction: column;
+	align-items: center;
 	width: 30.5%;
 	border-left: 2px solid black;
 	padding: 16px;
 	background-color: #ffeec8;
+    margin-left: auto;
 }
 
 .chipBar {
 	width: 70%;
 	height: 5%;
 	background-color: gray;
-	position: absolute;
-	top: 25%;
 	overflow: hidden;
 }
 
@@ -449,13 +428,12 @@ input {
 	width: 100%;
 	height: 100%;
 	background-color: #79070c;
-	float: left;
 	color: white;
 	transition: width 1s;
 }
 
 #strengthBar {
-	top: 15%;
+    margin-top: 5%;
 }
 
 #currentStrength {
@@ -463,7 +441,7 @@ input {
 }
 
 #intelligenceBar {
-	top: 25%;
+    margin-top: 5%;
 }
 
 #currentIntelligence {
@@ -471,34 +449,25 @@ input {
 }
 
 #spiritBar {
-	top: 35%;
+    margin-top: 5%;
 }
 
 #currentSpirit {
 	background-color: #6ca0d6;
 }
 
-#catDetails .strength {
-	position: absolute;
-	top: 45%;
-	left: 7%;
+#strInt {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: flex;
+    flex-direction: row;
 }
 
-#catDetails .intelligence {
-	position: absolute;
-	top: 45%;
-	left: 55%;
-}
-
-#catDetails .spirit {
-	position: absolute;
-	top: 70%;
-	left: 30%;
+#catDetails .abilityContent {
+	justify-content: center;
 }
 
 #gameText {
-	position: absolute;
-	left: 7.5%;
 	width: 54.5%;
 	height: 66%;
 	padding: 16px;
@@ -519,34 +488,28 @@ input {
 }
 
 .upgradeLeft {
-	position: relative;
-	top: 5%;
 	font-size: 32px;
+    margin-top: 5%;
+    text-align: center;
 }
 
-#abilityUpgrader .strength {
-	position: absolute;
-	top: 35%;
-	left: 25%;
+#abilities, #intspt {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    margin-top: 5%;
 }
 
 #abilityUpgrader .intelligence {
-	position: absolute;
-	top: 35%;
-	left: 45%;
+    margin-left: 5%;
 }
 
-#abilityUpgrader .spirit,
+#abilityUpgrader .spirit {
+    margin-left: 5%;
+}
+
 #intsptUpgrader .spirit {
-	position: absolute;
-	top: 35%;
-	left: 65%;
-}
-
-#intsptUpgrader .intelligence {
-	position: absolute;
-	top: 35%;
-	left: 25%;
+    margin-left: 5%;
 }
 
 #exportCat,
@@ -582,30 +545,15 @@ input {
 	text-align: center;
 	flex-direction: column;
 }
-#chooseClan {
+#chooseClan, #createCat, #knackChooser, #gameChooser, #knackUpgrader,  #mission, #skillUpgrader, #abilityUpgrader, #intsptUpgrader {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
-#createCat {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-#knackChooser {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-#knackChooser .gameBox {
+#knackChooser .gameBox, #knackUpgrader .gameBox, #mission .gameBox {
 	display: flex;
 }
-#gameChooser {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-#gameChooser .gameBox {
+#gameChooser .gameBox, #skillUpgrader .gameBox, #skillUpgrader .gameBox, #abilityUpgrader .gameBox, #intsptUpgrader .gameBox {
 	display: flex;
     flex-direction: column;
 }
