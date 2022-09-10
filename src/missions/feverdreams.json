@@ -1311,7 +1311,7 @@
 				"attack": "swat",
 				"onattackfailturns": 1,
 				"onwin": "onespecialpool",
-				"onknockout": "knockout",
+				"onknockout": "knockedout",
 				"goesFirst": true,
 				"canescape": false
 			}
@@ -1339,7 +1339,7 @@
 							"bite": 8,
 							"attack": "bite",
 							"onwin": "yougivemefever",
-							"onknockout": "knockout",
+							"onknockout": "knockedout",
 							"firstattacknoescape": true,
 							"canescape": false
 						}
@@ -1359,7 +1359,7 @@
 							"bite": 8,
 							"attack": "bite",
 							"onwin": "yougivemefever",
-							"onknockout": "knockout",
+							"onknockout": "knockedout",
 							"canescape": false
 						}
 					]
